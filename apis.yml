@@ -1,0 +1,44 @@
+aid: agentic-ai-foundation
+name: Agentic AI Foundation
+description: >-
+  The Agentic AI Foundation (AAIF) is a Linux Foundation project formed in December 2025 that brings together critical open standards for AI agents. It hosts Anthropic's Model Context Protocol (MCP), Block's goose, and OpenAI's AGENTS.md under neutral governance to enable interoperable AI agent ecosystems.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - AI Agents
+  - Open Source
+  - Standards
+  - Linux Foundation
+created: '2026-03-16'
+modified: '2026-03-16'
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs/heads/main/apis.yml
+specificationVersion: '0.19'
+apis:
+  - aid: agentic-ai-foundation:agentic-ai-foundation-api
+    name: Agentic AI Foundation API
+    description: >-
+      Programmatic access to Agentic AI Foundation standards, MCP protocol tools, and AI agent interoperability resources.
+    humanURL: https://lfaidata.foundation/
+    tags:
+  - AI Agents
+  - Open Source
+  - Standards
+  - Linux Foundation
+    properties:
+      - type: Documentation
+        url: https://lfaidata.foundation/
+common:
+  - type: Documentation
+    name: Agentic AI Foundation Documentation
+    description: Official documentation for Agentic AI Foundation.
+    url: https://lfaidata.foundation/
+  - type: GitHubOrg
+    name: Agentic AI Foundation GitHub
+    description: Source code and repositories for Agentic AI Foundation.
+    url: https://github.com/agentic-ai-foundation
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
