@@ -8,9 +8,9 @@ access: 3rd-Party
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - AI Agents
+  - Linux Foundation
   - Open Source
   - Standards
-  - Linux Foundation
 created: '2026-03-16'
 modified: '2026-03-16'
 url: >-
@@ -24,9 +24,9 @@ apis:
     humanURL: https://lfaidata.foundation/
     tags:
       - AI Agents
+      - Linux Foundation
       - Open Source
       - Standards
-      - Linux Foundation
     properties:
       - type: Documentation
         url: https://lfaidata.foundation/
