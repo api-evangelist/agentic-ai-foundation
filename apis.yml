@@ -23,10 +23,10 @@ apis:
       Programmatic access to Agentic AI Foundation standards, MCP protocol tools, and AI agent interoperability resources.
     humanURL: https://lfaidata.foundation/
     tags:
-  - AI Agents
-  - Open Source
-  - Standards
-  - Linux Foundation
+      - AI Agents
+      - Open Source
+      - Standards
+      - Linux Foundation
     properties:
       - type: Documentation
         url: https://lfaidata.foundation/
