@@ -1,0 +1,46 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aaif": "https://aaif.foundation/schema/",
+    "mcp": "https://modelcontextprotocol.io/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "MCPTool": "mcp:Tool",
+    "MCPResource": "mcp:Resource",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "version": "schema:version",
+
+    "uri": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "mimeType": {
+      "@id": "schema:encodingFormat",
+      "@type": "xsd:string"
+    },
+    "size": {
+      "@id": "schema:contentSize",
+      "@type": "xsd:integer"
+    },
+    "inputSchema": {
+      "@id": "mcp:input_schema",
+      "@type": "@id"
+    },
+    "annotations": {
+      "@id": "mcp:annotations",
+      "@type": "@id"
+    },
+    "readOnly": {
+      "@id": "mcp:read_only",
+      "@type": "xsd:boolean"
+    },
+    "destructive": {
+      "@id": "mcp:destructive",
+      "@type": "xsd:boolean"
+    }
+  }
+}

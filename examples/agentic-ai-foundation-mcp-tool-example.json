@@ -1,0 +1,23 @@
+{
+  "name": "search_web",
+  "description": "Search the web for information on a given query and return the top results.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "The search query string."
+      },
+      "max_results": {
+        "type": "integer",
+        "description": "Maximum number of results to return.",
+        "default": 5
+      }
+    },
+    "required": ["query"]
+  },
+  "annotations": {
+    "readOnly": true,
+    "destructive": false
+  }
+}

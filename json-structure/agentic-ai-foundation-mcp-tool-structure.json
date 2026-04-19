@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs/heads/main/json-structure/agentic-ai-foundation-mcp-tool-structure.json",
+  "name": "MCPTool",
+  "description": "An MCP tool definition exposed by an MCP server, discoverable by AI agent clients.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique name of the tool.",
+      "example": "read_file"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of what the tool does.",
+      "example": "Read the contents of a file at the specified path."
+    },
+    "inputSchema": {
+      "type": "object",
+      "description": "JSON Schema defining the tool's input parameters.",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "object"
+        },
+        "properties": {
+          "type": "object"
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "annotations": {
+      "type": "object",
+      "description": "Optional metadata annotations for the tool.",
+      "properties": {
+        "readOnly": {
+          "type": "boolean",
+          "description": "If true, the tool only reads data and does not modify state."
+        },
+        "destructive": {
+          "type": "boolean",
+          "description": "If true, the tool may cause irreversible side effects."
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "inputSchema"
+  ]
+}

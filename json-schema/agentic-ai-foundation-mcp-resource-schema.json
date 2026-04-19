@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs/heads/main/json-schema/agentic-ai-foundation-mcp-resource-schema.json",
+  "title": "MCPResource",
+  "description": "A data resource exposed by an MCP server, accessible to AI agent clients for reading context.",
+  "type": "object",
+  "properties": {
+    "uri": {
+      "type": "string",
+      "format": "uri",
+      "description": "Unique URI identifying this resource.",
+      "example": "file:///home/user/documents/report.pdf"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the resource.",
+      "example": "Quarterly Report"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of the resource's contents.",
+      "example": "Q1 2026 financial report in PDF format."
+    },
+    "mimeType": {
+      "type": "string",
+      "description": "MIME type of the resource content.",
+      "example": "application/pdf"
+    },
+    "size": {
+      "type": "integer",
+      "description": "Size of the resource in bytes.",
+      "example": 204800
+    }
+  },
+  "required": ["uri", "name"]
+}

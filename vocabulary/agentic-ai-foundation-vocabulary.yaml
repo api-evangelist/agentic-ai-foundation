@@ -1,0 +1,170 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Agentic AI Foundation
+  description: Vocabulary for the Agentic AI Foundation (AAIF), covering the MCP standard, goose agent, and open governance for AI agent interoperability.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+
+operational:
+  apis:
+    - name: Model Context Protocol (MCP)
+      namespace: mcp
+      version: "1.0"
+      baseUrl: https://modelcontextprotocol.io
+      status: active
+    - name: Goose AI Agent
+      namespace: goose
+      version: "1.0"
+      baseUrl: https://github.com/block/goose
+      status: active
+
+  resources:
+    - name: tools
+      description: Callable functions exposed by MCP servers to AI agent clients
+      actions:
+        - list
+        - call
+        - describe
+    - name: resources
+      description: Data sources and context objects accessible via MCP
+      actions:
+        - list
+        - read
+        - subscribe
+    - name: prompts
+      description: Reusable prompt templates exposed by MCP servers
+      actions:
+        - list
+        - get
+    - name: agents
+      description: AI agent instances using MCP tools and resources
+      actions:
+        - create
+        - run
+        - extend
+    - name: extensions
+      description: Goose agent extensions providing additional tools and capabilities
+      actions:
+        - list
+        - install
+        - enable
+        - disable
+
+  actions:
+    - name: list
+      description: Enumerate available items
+      httpMethod: GET
+      pattern: read
+    - name: call
+      description: Invoke a tool with input parameters
+      httpMethod: POST
+      pattern: write
+    - name: read
+      description: Retrieve the content of a resource
+      httpMethod: GET
+      pattern: read
+    - name: describe
+      description: Get the schema and metadata for a tool
+      httpMethod: GET
+      pattern: read
+    - name: install
+      description: Add an extension or tool to an agent
+      httpMethod: POST
+      pattern: write
+    - name: run
+      description: Execute an agent task
+      httpMethod: POST
+      pattern: write
+
+  schemas:
+    core:
+      - name: MCPTool
+        description: A callable tool definition in the MCP protocol
+        properties:
+          - name
+          - description
+          - inputSchema
+          - annotations
+      - name: MCPResource
+        description: A data resource accessible via MCP
+        properties:
+          - uri
+          - name
+          - description
+          - mimeType
+          - size
+
+  enums:
+    transport_types:
+      - http
+      - stdio
+      - websocket
+    annotation_hints:
+      - readOnly
+      - destructive
+      - idempotent
+    llm_providers:
+      - anthropic
+      - openai
+      - google
+      - azure
+      - ollama
+      - bedrock
+
+capability:
+  workflows:
+    - name: MCP Tool Invocation
+      description: An AI agent discovers and calls an MCP-compatible tool using the standard protocol
+      apis:
+        - mcp
+      personas:
+        - AI Developer
+      domains:
+        - Tool Use
+    - name: Agent Extension Management
+      description: Install and configure extensions in goose to expand its capabilities
+      apis:
+        - goose
+      personas:
+        - AI Developer
+      domains:
+        - Agent Configuration
+
+  personas:
+    - id: ai-developer
+      name: AI Developer
+      description: Developers building AI agent applications using MCP tools and AAIF standards
+      workflows:
+        - MCP Tool Invocation
+        - Agent Extension Management
+    - id: standards-contributor
+      name: Standards Contributor
+      description: Open-source contributors defining and evolving AAIF protocols and standards
+      workflows:
+        - MCP Tool Invocation
+
+  domains:
+    - name: Tool Use
+      description: The use of MCP tools to extend AI agent capabilities
+    - name: Agent Configuration
+      description: Installing, configuring, and managing agent extensions and providers
+
+crossReference:
+  - resource: tools
+    operations:
+      - list
+      - call
+    workflows:
+      - MCP Tool Invocation
+    personas:
+      - AI Developer
+  - resource: extensions
+    operations:
+      - list
+      - install
+      - enable
+    workflows:
+      - Agent Extension Management
+    personas:
+      - AI Developer
