@@ -57,6 +57,8 @@ apis:
     - type: GitHubRepository
       url: https://github.com/block/goose
 common:
+  - type: DomainSecurity
+    url: security/agentic-ai-foundation-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/agentic-ai-foundation
   - type: GitHubOrganization
