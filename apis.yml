@@ -69,6 +69,16 @@ apis:
     - type: GitHubRepository
       url: https://github.com/block/goose
 common:
+  - type: IssueTracker
+    url: https://github.com/modelcontextprotocol/specification/issues
+  - type: Releases
+    url: https://github.com/modelcontextprotocol/specification/releases
+  - type: SecurityPolicy
+    url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/CONTRIBUTING.md
   - type: DomainSecurity
     url: security/agentic-ai-foundation-domain-security.yml
   - type: LinkedIn
