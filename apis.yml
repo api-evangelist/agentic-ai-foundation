@@ -31,7 +31,7 @@ tags:
   - Interoperability
 created: '2026-03-16'
 modified: '2026-04-19'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: agentic-ai-foundation:model-context-protocol
     name: Model Context Protocol (MCP)
