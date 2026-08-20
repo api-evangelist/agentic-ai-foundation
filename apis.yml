@@ -24,6 +24,14 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/agentic-ai
 tags:
   - AI Agents
   - Linux Foundation
+  - Open-Source
+  - Standards
+  - MCP
+  - Agentic AI
+  - Interoperability
+tags_raw:
+  - AI Agents
+  - Linux Foundation
   - Open Source
   - Standards
   - MCP
@@ -39,6 +47,11 @@ apis:
       Anthropic and donated to the Agentic AI Foundation, MCP enables agents to discover and invoke tools, access resources, and use reusable prompt templates through a standardized protocol.
     humanURL: https://modelcontextprotocol.io/introduction
     tags:
+    - MCP
+    - Open Standard
+    - Tool Use
+    - AI Agents
+    tags_raw:
     - MCP
     - Model Context Protocol
     - Open Standard
@@ -57,6 +70,13 @@ apis:
       extensions, and provides a native desktop app, CLI, and API. Built in Rust for cross-platform portability across macOS, Linux, and Windows.
     humanURL: https://github.com/block/goose
     tags:
+    - AI Agent
+    - Open-Source
+    - MCP
+    - CLI
+    - Desktop App
+    - Rust
+    tags_raw:
     - AI Agent
     - Open Source
     - MCP
