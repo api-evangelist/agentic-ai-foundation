@@ -1,0 +1,50 @@
+generated: '2026-08-30'
+method: searched
+source: https://modelcontextprotocol.io/.well-known/agent-card.json (skills[].url), fetched verbatim
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  Agent Skills published by the Model Context Protocol project, an AAIF-hosted project, and served from
+  its own host at /.well-known/agent-skills/<id>/skill.md. These are the provider's own documents saved
+  verbatim — nothing here was authored by API Evangelist. Both are discovered through the project's A2A
+  agent card, which lists them in skills[].
+skills:
+  - id: draft-sep
+    name: draft-sep
+    file: agentic-ai-foundation-draft-sep.md
+    source: https://modelcontextprotocol.io/.well-known/agent-skills/draft-sep/skill.md
+    http_status: 200
+    content_type: text/markdown
+    description: >-
+      Research and draft a Specification Enhancement Proposal following the MCP SEP governance process.
+    user_invocable: true
+    arguments:
+      - name: idea
+        required: true
+        description: One-line summary of the proposed change
+    project: Model Context Protocol
+  - id: search-mcp-github
+    name: search-mcp-github
+    file: agentic-ai-foundation-search-mcp-github.md
+    source: https://modelcontextprotocol.io/.well-known/agent-skills/search-mcp-github/skill.md
+    http_status: 200
+    content_type: text/markdown
+    description: Search MCP PRs, issues, and discussions across the modelcontextprotocol GitHub org.
+    license: Apache-2.0
+    user_invocable: true
+    arguments:
+      - name: topic
+        required: true
+        description: The topic or keyword to search for
+    project: Model Context Protocol
+notes:
+  - >-
+    Both skills operate on the MCP governance process rather than on a callable API. draft-sep requires a
+    local clone of modelcontextprotocol/modelcontextprotocol; search-mcp-github drives the gh CLI and the
+    project's own mcp-docs MCP server.
+  - >-
+    No AAIF-hosted project publishes an Agent Skill for the Official MCP Registry API, which is the one
+    surface in this repo with an OpenAPI contract.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

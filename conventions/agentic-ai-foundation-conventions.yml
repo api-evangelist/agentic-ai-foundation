@@ -1,0 +1,145 @@
+generated: '2026-08-30'
+method: derived
+source: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml + live responses from registry.modelcontextprotocol.io + https://github.com/modelcontextprotocol/registry/tree/main/docs
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  Cross-cutting runtime semantics for the one AAIF-hosted surface with a published REST contract, the
+  Official MCP Registry API. Everything here is read from the contract or observed on the wire; where the
+  provider documents nothing, that is recorded as absent rather than filled in.
+scope:
+  api: Official MCP Registry
+  baseURL: https://registry.modelcontextprotocol.io
+  spec: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml
+auth_style:
+  summary: Anonymous reads, bearer JWT writes.
+  detail: See authentication/agentic-ai-foundation-authentication.yml
+versioning:
+  style: url-prefix
+  current: /v0.1
+  also_live: /v0
+  detail: >-
+    Both version families are published in the same document and expose the same 16 operations, giving 32
+    operations in total. Operation IDs carry the version as a suffix (list-servers-v0.1 vs list-servers-v0).
+  server_version_endpoint: GET /v0.1/version
+pagination:
+  style: cursor
+  request:
+    cursor: query parameter, opaque string
+    limit: query parameter, integer, default 30, minimum 1, maximum 100
+  response:
+    envelope: ServerListResponse
+    items_field: servers
+    metadata_field: metadata
+  filters:
+    - name: search
+      description: Substring match on server name
+    - name: version
+      description: "'latest' or an exact version such as 1.2.3"
+    - name: updated_since
+      description: RFC3339 datetime; incremental sync filter
+    - name: include_deleted
+      description: Defaults false, but is forced true whenever updated_since is supplied
+  incremental_sync: >-
+    updated_since + include_deleted is a genuine delta-sync contract — a consumer can mirror the registry
+    and learn about deletions, which most catalog APIs do not offer.
+field_expansion:
+  supported: false
+sparse_fieldsets:
+  supported: false
+metadata:
+  extension_namespace: io.modelcontextprotocol.registry/official
+  detail: >-
+    Registry-owned metadata is namespaced under a reverse-DNS key inside _meta rather than mixed into the
+    server document, so publisher-supplied and registry-supplied fields never collide.
+request_id_tracing:
+  documented: false
+  observed: false
+  detail: >-
+    No X-Request-Id, traceparent or equivalent correlation header was returned on any probed response
+    (GET /v0/health, and four 404s). RFC 9457 `instance` is available in the error envelope but no
+    observed response populated it.
+error_envelope:
+  format: rfc9457
+  media_type: application/problem+json
+  detail: See errors/agentic-ai-foundation-problem-types.yml
+rate_limit_signaling:
+  documented: false
+  observed: false
+  detail: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header appeared on any probed response, and the docs
+    publish no limits. See rate-limits/agentic-ai-foundation-rate-limits.yml.
+idempotency:
+  supported: false
+  grade: absent
+  detail: >-
+    No Idempotency-Key header, no idempotency section in the contract, and no idempotency documentation.
+    Natural idempotency comes only from HTTP method semantics: PUT /v0.1/servers/{serverName}/versions/{version}
+    (edit-server) and the PATCH status operations are idempotent by construction because they set a state
+    rather than append; POST /v0.1/publish is NOT — republishing the same version is rejected by the
+    registry's immutability rule rather than deduplicated by a client-supplied key.
+  http_level_idempotent_operations:
+    - edit-server-v0.1
+    - update-server-status-v0.1
+    - update-server-all-versions-status-v0.1
+  non_idempotent_operations:
+    - publish-server-v0.1
+dry_run_mode:
+  supported: true
+  grade: verified
+  operation: validate-server-v0.1
+  path: POST /v0.1/validate
+  auth: none
+  detail: >-
+    A real rehearsal endpoint: it accepts the same server JSON document publish takes and returns a
+    ValidationResult with ValidationIssue entries, without writing anything and without a token. An agent
+    can check a publish before attempting it.
+reversibility:
+  grade: documented
+  na: false
+  summary: >-
+    Every write on this API has a reversal path, and all of them are state transitions rather than
+    deletions — but the contract states no time window for any of them, so this grades `documented`
+    rather than `verified`.
+  surfaces:
+    - write_operation: publish-server-v0.1
+      write_path: POST /v0.1/publish
+      reversal: update-server-status-v0.1
+      reversal_path: PATCH /v0.1/servers/{serverName}/versions/{version}/status
+      reversal_semantics: >-
+        Set status to "deprecated" or "deleted". The status enum is active | deprecated | deleted, and a
+        statusMessage of up to 500 characters can explain the change.
+      window: null
+      window_source: null
+      note: >-
+        The published contract states no window. It also does not state whether "deleted" is reversible
+        back to "active" — the enum permits the transition but no documentation asserts it, so an agent
+        must treat deletion as potentially terminal.
+    - write_operation: edit-server-v0.1
+      write_path: PUT /v0.1/servers/{serverName}/versions/{version}
+      reversal: edit-server-v0.1
+      reversal_semantics: >-
+        Self-reversing: re-PUT the previous document. There is no version history or restore operation, so
+        reversal requires the caller to have kept the prior state; GET /v0.1/servers/{serverName}/versions/{version}
+        can be used to capture it before writing.
+      window: null
+    - write_operation: update-server-all-versions-status-v0.1
+      write_path: PATCH /v0.1/servers/{serverName}/status
+      reversal: update-server-all-versions-status-v0.1
+      reversal_semantics: Re-PATCH to the prior status across all versions.
+      window: null
+  soft_delete: >-
+    Deletion is soft at the read layer — list-servers accepts include_deleted, and forces it true when
+    updated_since is supplied — so a deleted server remains observable to consumers doing incremental sync.
+  gap: >-
+    No documented retention or restore window anywhere in the contract or the docs repository. This is the
+    single highest-value thing the registry could publish for agent consumers.
+cross_links:
+  errors: errors/agentic-ai-foundation-problem-types.yml
+  lifecycle: lifecycle/agentic-ai-foundation-lifecycle.yml
+  authentication: authentication/agentic-ai-foundation-authentication.yml
+  rate_limits: rate-limits/agentic-ai-foundation-rate-limits.yml
+  data_model: data-model/agentic-ai-foundation-data-model.yml
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

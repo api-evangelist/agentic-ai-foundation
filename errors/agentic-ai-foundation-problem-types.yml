@@ -1,0 +1,82 @@
+generated: '2026-08-30'
+method: derived
+source: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml (default responses) + live 404 responses observed on registry.modelcontextprotocol.io
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+format: rfc9457
+description: >-
+  The Official MCP Registry API returns RFC 9457 problem details on every error path. This was confirmed
+  two ways: the contract declares application/problem+json on the `default` response of all 32
+  operations, and live unauthenticated probes returned Content-Type application/problem+json with a
+  populated title/status/detail body.
+envelope:
+  media_type: application/problem+json
+  schema: ErrorModel
+  fields:
+    - name: type
+      description: A URI reference identifying the problem type.
+    - name: title
+      description: Short human-readable summary of the problem type.
+    - name: status
+      description: HTTP status code.
+    - name: detail
+      description: Human-readable explanation specific to this occurrence.
+    - name: instance
+      description: URI reference identifying the specific occurrence.
+    - name: errors
+      description: >-
+        Optional array of ErrorDetail objects — each with `location` (e.g. body.items[3].tags or
+        path.thing-id), `message` and `value`. This is the field-level validation channel.
+coverage:
+  operations_total: 32
+  operations_with_default_error_response: 32
+  operations_with_explicit_4xx: 0
+  note: >-
+    Every operation declares exactly two responses — 200 and `default`. There are NO enumerated 4xx or
+    5xx status codes anywhere in the contract, so a consumer cannot tell from the spec which failures a
+    given operation can produce. The problem envelope is excellent; the status enumeration is absent.
+problem_types:
+  - status: 404
+    title: Not Found
+    observed: true
+    evidence:
+      url: https://registry.modelcontextprotocol.io/.well-known/security.txt
+      body: >-
+        {"detail":"Endpoint not found. Did you mean '/v0.1/.well-known/security.txt' or
+        '/v0/.well-known/security.txt'? See /docs for the API documentation.","status":404,"title":"Not Found"}
+    remediation: >-
+      The registry suggests the versioned path when an unversioned one is requested. Prefix every call
+      with /v0.1 or /v0.
+  - status: 404
+    title: Not Found
+    observed: true
+    evidence:
+      url: https://registry.modelcontextprotocol.io/v0/mcp
+      body: '{"detail":"Endpoint not found. See /docs for the API documentation.","status":404,"title":"Not Found"}'
+    remediation: Consult https://registry.modelcontextprotocol.io/docs for the operation set.
+  - status: 401
+    title: Unauthorized
+    observed: false
+    derived_from: >-
+      The eight write operations declare security [{bearer: []}]; a missing or expired Registry JWT is the
+      expected failure. Not probed — probing it would require attempting a write against the production
+      registry.
+    remediation: Mint a fresh Registry JWT from one of the /v0.1/auth/* token-exchange endpoints.
+  - status: 422
+    title: Validation failure
+    observed: false
+    derived_from: >-
+      ErrorModel.errors[] carries ErrorDetail with a `location` path such as body.items[3].tags, which is
+      the shape a request-body validation failure takes. POST /v0.1/validate exists precisely so a
+      publisher can surface these before publishing.
+    remediation: >-
+      Call POST /v0.1/validate with the server JSON first; it returns a ValidationResult with
+      ValidationIssue entries and requires no authentication.
+gaps:
+  - No published error-code registry — the API returns problem details but enumerates no stable error codes.
+  - >-
+    No `type` URI values are documented, so every problem detail defaults to about:blank and clients must
+    branch on status + title rather than a stable identifier.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

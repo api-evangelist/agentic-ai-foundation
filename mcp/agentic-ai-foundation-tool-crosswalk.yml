@@ -1,0 +1,85 @@
+generated: '2026-08-30'
+method: derived
+source: mcp/agentic-ai-foundation-mcp.yml + openapi/agentic-ai-foundation-mcp-registry-openapi.yaml
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  Crosswalk between the live MCP tools on modelcontextprotocol.io and the REST operations of the Official
+  MCP Registry API. The two surfaces do not overlap at all: the MCP server is a documentation assistant
+  and the REST API is the registry control plane. Every MCP tool is mcp_only and every registry operation
+  is rest_only. That is the finding, not a gap in the mapping.
+surfaces:
+  openapi: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml
+  openapi_host: https://registry.modelcontextprotocol.io
+  mcp: https://modelcontextprotocol.io/mcp
+  mcp_gated: false
+  graphql: null
+  note: >-
+    The MCP endpoint and the registry REST API are served by different hosts run by the same project. The
+    MCP endpoint is anonymous; the registry's write operations require a Registry JWT.
+crosswalk: []
+mcp_only:
+  - tool: search_model_context_protocol
+    reason: >-
+      Full-text search over the MCP documentation corpus. The registry API exposes no documentation search
+      operation; its GET /v0/servers list is a server catalog, not a docs index.
+  - tool: query_docs_filesystem_model_context_protocol
+    reason: >-
+      Read-only shell over a virtualized documentation filesystem. There is no REST equivalent anywhere in
+      the registry contract.
+  - tool: submit_feedback
+    reason: Documentation feedback capture; no REST operation accepts docs feedback.
+rest_only:
+  - operationId: list-servers-v0.1
+    note: GET /v0.1/servers — the registry catalog listing, unavailable to an MCP client.
+  - operationId: get-server-versions-v0.1
+  - operationId: get-server-version-v0.1
+  - operationId: publish-server-v0.1
+    note: POST /v0.1/publish — requires bearer Registry JWT.
+  - operationId: edit-server-v0.1
+    note: PUT — requires bearer Registry JWT.
+  - operationId: update-server-status-v0.1
+    note: PATCH — requires bearer Registry JWT.
+  - operationId: update-server-all-versions-status-v0.1
+    note: PATCH — requires bearer Registry JWT.
+  - operationId: validate-server-v0.1
+    note: POST /v0.1/validate — anonymous dry-run validation of a server JSON document.
+  - operationId: exchange-dns-token-v0.1
+  - operationId: exchange-github-token-v0.1
+  - operationId: exchange-github-oidc-token-v0.1
+  - operationId: exchange-http-token-v0.1
+  - operationId: exchange-oidc-token-v0.1
+  - operationId: get-health-v0.1
+  - operationId: ping-v0.1
+  - operationId: get-version-v0.1
+  - operationId: list-servers-v0
+    note: The /v0 family duplicates every /v0.1 operation under the older version prefix.
+  - operationId: get-server-versions-v0
+  - operationId: get-server-version-v0
+  - operationId: publish-server-v0
+  - operationId: edit-server-v0
+  - operationId: update-server-status-v0
+  - operationId: update-server-all-versions-status-v0
+  - operationId: validate-server-v0
+  - operationId: exchange-dns-token-v0
+  - operationId: exchange-github-token-v0
+  - operationId: exchange-github-oidc-token-v0
+  - operationId: exchange-http-token-v0
+  - operationId: exchange-oidc-token-v0
+  - operationId: get-health-v0
+  - operationId: ping-v0
+  - operationId: get-version-v0
+coverage:
+  mcp_tools: 3
+  rest_operations: 32
+  bound: 0
+  mcp_only: 3
+  rest_only: 32
+  rest_operations_distinct: 16
+  note: >-
+    32 operations across two version prefixes (/v0 and /v0.1) that are 16 distinct operations duplicated.
+    Zero of them have an MCP projection — the registry that catalogs MCP servers is not itself callable
+    over MCP.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

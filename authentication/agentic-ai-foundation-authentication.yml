@@ -1,0 +1,95 @@
+generated: '2026-08-30'
+method: derived
+source: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml + live probes of registry.modelcontextprotocol.io and modelcontextprotocol.io/mcp
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  Authentication profile across the AAIF-hosted surfaces that are actually callable. The Official MCP
+  Registry API is read-anonymous / write-bearer: every GET and the validate endpoint are unauthenticated,
+  and the four write operations require a Registry JWT minted by one of five token-exchange endpoints.
+  The MCP endpoint on modelcontextprotocol.io is fully anonymous.
+apis:
+  - name: Official MCP Registry
+    baseURL: https://registry.modelcontextprotocol.io
+    spec: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml
+    schemes:
+      - id: bearer
+        type: http
+        scheme: bearer
+        bearerFormat: JWT
+        in: header
+        header: Authorization
+        applied_to:
+          - publish-server-v0.1
+          - edit-server-v0.1
+          - update-server-status-v0.1
+          - update-server-all-versions-status-v0.1
+          - publish-server-v0
+          - edit-server-v0
+          - update-server-status-v0
+          - update-server-all-versions-status-v0
+        defect: >-
+          The scheme name `bearer` is referenced by these eight operations but components.securitySchemes
+          is ABSENT from the published document, so the reference dangles and a code generator produces a
+          client with no auth. Recorded, not corrected in place — the correction is in
+          overlays/agentic-ai-foundation-mcp-registry-overlay.yaml.
+    token_exchange:
+      description: >-
+        Five ways to obtain the Registry JWT. Each is a POST that trades an externally-issued credential
+        for a registry-scoped token; there is no username/password and no long-lived API key.
+      endpoints:
+        - path: /v0.1/auth/github-at
+          operationId: exchange-github-token-v0.1
+          credential: GitHub OAuth access token
+        - path: /v0.1/auth/github-oidc
+          operationId: exchange-github-oidc-token-v0.1
+          credential: GitHub Actions OIDC token
+        - path: /v0.1/auth/oidc
+          operationId: exchange-oidc-token-v0.1
+          credential: Generic OIDC ID token
+        - path: /v0.1/auth/dns
+          operationId: exchange-dns-token-v0.1
+          credential: DNS TXT record signature proving domain control
+        - path: /v0.1/auth/http
+          operationId: exchange-http-token-v0.1
+          credential: HTTP signature proving control of a well-known path on the namespace domain
+      note: >-
+        The same five endpoints exist under the /v0 prefix. GET /v0/health returns a github_client_id
+        field, confirming a GitHub OAuth app backs the github-at flow.
+    anonymous_operations:
+      - list-servers-v0.1
+      - get-server-versions-v0.1
+      - get-server-version-v0.1
+      - validate-server-v0.1
+      - get-health-v0.1
+      - ping-v0.1
+      - get-version-v0.1
+    identity_model: >-
+      Namespace ownership. A publisher proves control of the namespace it is publishing under — a GitHub
+      org/user for io.github.* names, or DNS/HTTP proof of a domain for reverse-DNS names — and the
+      registry issues a JWT scoped to that namespace.
+  - name: MCP documentation server
+    baseURL: https://modelcontextprotocol.io/mcp
+    schemes:
+      - id: none
+        type: none
+        description: >-
+          Probed anonymously 2026-08-30: tools/list returned HTTP 200 with the full tool set. No OAuth
+          challenge, no WWW-Authenticate header, no API key. /.well-known/oauth-authorization-server and
+          /.well-known/oauth-protected-resource both 404 on this host.
+    anonymous: true
+oauth2: false
+openid_connect:
+  consumed: true
+  provided: false
+  note: >-
+    The registry CONSUMES OIDC ID tokens (including GitHub Actions OIDC) to mint its own JWT, but it does
+    not act as an OpenID Provider. No /.well-known/openid-configuration is served on any host; the
+    versioned paths /v0/.well-known/openid-configuration and /v0.1/.well-known/openid-configuration were
+    probed and 404.
+docs:
+  - https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - https://registry.modelcontextprotocol.io/docs
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

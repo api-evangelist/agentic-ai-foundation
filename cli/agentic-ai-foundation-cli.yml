@@ -1,0 +1,100 @@
+generated: '2026-08-30'
+method: searched
+source: https://goose-docs.ai/docs/guides/goose-cli-commands + https://github.com/modelcontextprotocol/registry/releases
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  Two first-party command-line tools ship from AAIF-hosted projects: the goose CLI, which is the agent
+  itself, and mcp-publisher, the publishing client for the Official MCP Registry. AAIF publishes no CLI of
+  its own.
+clis:
+  - name: goose
+    project: goose
+    docs: https://goose-docs.ai/docs/guides/goose-cli-commands
+    repository: https://github.com/aaif-goose/goose
+    language: rust
+    license: Apache-2.0
+    version: v1.48.0
+    install:
+      - method: script
+        command: curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh | bash
+        platforms: [macos, linux, windows]
+      - method: homebrew
+        command: brew install --cask block-goose
+        platforms: [macos]
+        note: The Homebrew cask is still named block-goose after the project's pre-AAIF home at Block.
+    shell_completion: goose completion <bash|zsh|fish|nu|powershell>
+    commands:
+      - name: session
+        description: Start or resume an interactive chat session.
+        key_flags:
+          - --session-id
+          - -n / --name
+          - -r / --resume
+          - --edit
+          - --fork
+          - --history
+          - --container
+          - --with-extension
+          - --with-streamable-http-extension
+          - --with-builtin
+          - --max-turns
+          - --max-tool-repetitions
+      - name: session list
+        description: List all saved sessions (text or json output).
+      - name: session export
+        description: Export a session.
+      - name: session remove
+        description: Delete a saved session.
+      - name: session diagnostics
+        description: Report diagnostics for a session.
+      - name: run
+        description: Execute commands from an instruction file or stdin — the non-interactive/automation entry point.
+      - name: configure
+        description: Configure goose settings — providers, extensions and preferences.
+      - name: recipe
+        description: Validate recipe files, manage recipe sharing, and list available recipes.
+      - name: schedule
+        description: Automate recipes by running them on a schedule (add and related subcommands).
+      - name: mcp
+        description: Run an enabled MCP server by name.
+      - name: acp
+        description: Run goose as an Agent Client Protocol (ACP) agent server over stdio.
+      - name: serve
+        description: Run goose as a server process.
+      - name: info
+        description: Show goose version, configuration file locations and environment information.
+      - name: update
+        description: Update the goose CLI (--canary for pre-release builds).
+      - name: completion
+        description: Generate shell completion scripts.
+    key_flows:
+      - name: Run an agent task headlessly
+        steps:
+          - goose run --instructions <file>
+      - name: Add a remote MCP server to a session
+        steps:
+          - goose session --with-streamable-http-extension "https://modelcontextprotocol.io/mcp"
+      - name: Schedule a recipe
+        steps:
+          - goose recipe validate <recipe.yaml>
+          - goose schedule add <options>
+    note: >-
+      From version 1.10.0 goose stores sessions in a SQLite database (sessions.db) rather than individual
+      .jsonl files; legacy files remain on disk but are no longer managed.
+  - name: mcp-publisher
+    project: Official MCP Registry
+    repository: https://github.com/modelcontextprotocol/registry
+    docs: https://github.com/modelcontextprotocol/registry/tree/main/docs
+    language: go
+    version: v1.8.1
+    released: '2026-08-06'
+    description: >-
+      Publishing client for the Official MCP Registry — performs the namespace-ownership token exchange
+      and then calls the registry's publish/edit operations.
+    note: >-
+      Version is the registry repository's latest tagged release, which is where the binary is distributed;
+      there is no separate package-registry record for the CLI.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

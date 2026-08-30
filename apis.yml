@@ -1,10 +1,13 @@
 aid: agentic-ai-foundation
 name: Agentic AI Foundation
-description: The Agentic AI Foundation (AAIF) is a Linux Foundation project formed in December 2025 that brings together critical open standards and projects for AI agents under neutral governance. It
-  hosts Anthropic's Model Context Protocol (MCP), Block's goose AI agent, and OpenAI's AGENTS.md to enable interoperable, open AI agent ecosystems. The foundation drives standardization of agent 
-  communication protocols, tool interfaces, and cross-platform agent portability.
+description: 'The Agentic AI Foundation (AAIF) is a Linux Foundation project, announced 9 December 2025, that gives the core open standards and projects of the AI
+  agent ecosystem a neutral home. It hosts five projects: Anthropic''s Model Context Protocol (MCP), Block''s goose agent, OpenAI''s AGENTS.md, the Agent2Agent (A2A)
+  protocol, and agentgateway. Platinum members include Amazon Web Services, Anthropic, Block, Bloomberg, Cloudflare, Google, Microsoft and OpenAI. AAIF publishes
+  no commercial API of its own; the callable surface in this profile belongs to its hosted projects — the Official MCP Registry REST API, a live anonymous MCP server
+  on the MCP documentation host, and an A2A agent card served from the same host. Eight working groups cover reliability, agentic commerce, governance and regulatory
+  alignment, identity and trust, observability, security and privacy, workflow integration, and taxonomy.'
 url: https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs/heads/main/apis.yml
-humanURL: https://lfaidata.foundation/
+humanURL: https://aaif.io/
 type: Index
 deliveryModel:
   model: unknown
@@ -33,129 +36,342 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/agentic-ai-foundation.png
 tags:
-  - AI Agents
-  - Linux Foundation
-  - Open-Source
-  - Standards
-  - MCP
-  - Agentic AI
-  - Interoperability
+- AI Agents
+- Linux Foundation
+- Open-Source
+- Standards
+- MCP
+- Agentic AI
+- Interoperability
+- Agent Protocols
+- A2A
+- AGENTS.md
+- Open Governance
 tags_raw:
-  - AI Agents
-  - Linux Foundation
-  - Open Source
-  - Standards
-  - MCP
-  - Agentic AI
-  - Interoperability
+- AI Agents
+- Linux Foundation
+- Open Source
+- Standards
+- MCP
+- Agentic AI
+- Interoperability
+- Agent Protocols
+- A2A
+- AGENTS.md
+- Open Governance
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
-  - aid: agentic-ai-foundation:model-context-protocol
-    name: Model Context Protocol (MCP)
-    description: The Model Context Protocol (MCP) is an open-source standard for connecting AI applications to external systems including data sources, tools, and workflows. Originally developed by 
-      Anthropic and donated to the Agentic AI Foundation, MCP enables agents to discover and invoke tools, access resources, and use reusable prompt templates through a standardized protocol.
-    humanURL: https://modelcontextprotocol.io/introduction
-    tags:
-    - MCP
-    - Open Standard
-    - Tool Use
-    - AI Agents
-    tags_raw:
-    - MCP
-    - Model Context Protocol
-    - Open Standard
-    - Tool Use
-    - AI Agents
-    properties:
-    - type: Documentation
-      url: https://modelcontextprotocol.io/introduction
-    - type: GettingStarted
-      url: https://modelcontextprotocol.io/docs/develop/build-server
-    - type: GitHubRepository
-      url: https://github.com/modelcontextprotocol/specification
-  - aid: agentic-ai-foundation:goose
-    name: Goose AI Agent
-    description: Goose is a general-purpose, open-source AI agent that runs locally on your machine. Originally from Block and now under AAIF governance, goose supports 15+ LLM providers, 70+ MCP 
-      extensions, and provides a native desktop app, CLI, and API. Built in Rust for cross-platform portability across macOS, Linux, and Windows.
-    humanURL: https://github.com/block/goose
-    tags:
-    - AI Agent
-    - Open-Source
-    - MCP
-    - CLI
-    - Desktop App
-    - Rust
-    tags_raw:
-    - AI Agent
-    - Open Source
-    - MCP
-    - CLI
-    - Desktop App
-    - Rust
-    properties:
-    - type: Documentation
-      url: https://block.github.io/goose/
-    - type: GitHubRepository
-      url: https://github.com/block/goose
-common:
-  - type: IssueTracker
-    url: https://github.com/modelcontextprotocol/specification/issues
-  - type: Releases
-    url: https://github.com/modelcontextprotocol/specification/releases
-  - type: SecurityPolicy
-    url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/SECURITY.md
-  - type: CodeOfConduct
-    url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/CODE_OF_CONDUCT.md
-  - type: ContributionGuide
-    url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/CONTRIBUTING.md
-  - type: DomainSecurity
-    url: security/agentic-ai-foundation-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/agentic-ai-foundation
-  - type: GitHubOrganization
-    url: https://github.com/agentic-ai-foundation
-  - type: Portal
-    url: https://lfaidata.foundation/
+- aid: agentic-ai-foundation:model-context-protocol
+  name: Model Context Protocol (MCP)
+  description: The Model Context Protocol (MCP) is an open JSON-RPC 2.0 standard for connecting AI applications to external systems — tools, resources and reusable
+    prompt templates. Originally developed by Anthropic and donated to the Agentic AI Foundation, it is date-versioned; the current revision is 2026-07-28. The documentation
+    host also operates a live, anonymous remote MCP server at /mcp exposing three tools, and serves an A2A agent card and two Agent Skills from /.well-known/.
+  humanURL: https://modelcontextprotocol.io/
+  tags:
+  - MCP
+  - Open Standard
+  - Tool Use
+  - AI Agents
+  tags_raw:
+  - MCP
+  - Model Context Protocol
+  - Open Standard
+  - Tool Use
+  - AI Agents
+  properties:
   - type: Documentation
-    url: https://modelcontextprotocol.io/introduction
-  - type: Features
-    data:
-    - name: Neutral Open Governance
-      description: All AAIF projects operate under Linux Foundation neutral governance, ensuring no single vendor controls the direction of AI agent standards.
-    - name: Model Context Protocol (MCP)
-      description: MCP is a universal adapter standard enabling AI agents to connect to any external tool, data source, or workflow through a consistent protocol.
-    - name: Cross-Platform Agent Portability
-      description: AAIF standards enable AI agents to run consistently across different platforms, environments, and LLM providers without vendor lock-in.
-    - name: Tool and Extension Ecosystem
-      description: The MCP standard enables a rich ecosystem of 70+ tools and extensions that any compliant agent can discover and invoke.
-    - name: Multi-LLM Provider Support
-      description: AAIF projects support 15+ LLM providers including Anthropic, OpenAI, Google, Azure, and Ollama through standardized provider interfaces.
-    - name: Open Agent Communication
-      description: The Agent Communication Protocol (ACP) enables agents to authenticate and communicate with each other and LLM providers through open standards.
-  - type: UseCases
-    data:
-    - name: Interoperable AI Tool Development
-      description: Build MCP-compatible tools once and make them available to any AI agent or client that supports the MCP standard, eliminating integration silos.
-    - name: Enterprise Agent Standardization
-      description: Organizations adopt AAIF standards to ensure their AI agent infrastructure is portable, auditable, and not locked to a single AI vendor.
-    - name: Multi-Agent Workflow Orchestration
-      description: Use AAIF protocols to connect specialized AI agents that collaborate on complex tasks, each contributing domain-specific capabilities.
-    - name: Open-Source Agent Development
-      description: Developers build and extend open-source AI agents like goose using the AAIF ecosystem of standards and extensions.
-  - type: Integrations
-    data:
-    - name: Claude (Anthropic)
-      description: Native MCP support via the Anthropic Messages API, the originating implementation of the MCP standard.
-    - name: ChatGPT (OpenAI)
-      description: MCP tool integration via the OpenAI Responses API, enabling ChatGPT to invoke MCP-compatible tools.
-    - name: VS Code
-      description: GitHub Copilot in VS Code supports MCP servers for AI-assisted development through the AAIF MCP standard.
-    - name: Cursor
-      description: Cursor IDE integrates MCP tool support for AI-assisted coding agents.
-    - name: Linux Foundation
-      description: AAIF operates under Linux Foundation governance alongside related projects in the LF AI & Data portfolio.
+    url: https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro
+  - type: GettingStarted
+    url: https://modelcontextprotocol.io/docs/2026-07-28/develop/build-server
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/modelcontextprotocol
+  - type: Roadmap
+    url: https://modelcontextprotocol.io/development/roadmap
+  - type: JSONSchema
+    url: json-schema/agentic-ai-foundation-mcp-protocol-schema.json
+  - type: MCPServer
+    url: mcp/agentic-ai-foundation-mcp.yml
+  - type: AgentCard
+    url: a2a/agentic-ai-foundation-a2a.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: LLMsTxt
+    url: https://modelcontextprotocol.io/llms.txt
+  baseURL: https://modelcontextprotocol.io/mcp
+- aid: agentic-ai-foundation:mcp-registry
+  name: Official MCP Registry API
+  description: The Official MCP Registry is the community registry service for Model Context Protocol servers, run by the MCP project. Its REST API publishes a full
+    OpenAPI 3.1.0 contract with 32 operations across two live version prefixes (/v0.1 and /v0). Reads are anonymous — list, search and fetch server records with cursor
+    pagination and an updated_since incremental-sync filter; writes require a Registry JWT minted by proving namespace ownership through GitHub OAuth, GitHub or generic
+    OIDC, a DNS signature, or an HTTP signature. Errors are RFC 9457 problem details.
+  humanURL: https://registry.modelcontextprotocol.io/docs
+  baseURL: https://registry.modelcontextprotocol.io
+  tags:
+  - MCP
+  - Registry
+  - Server Discovery
+  - Open Standard
+  - REST
+  tags_raw:
+  - MCP
+  - Registry
+  - Server Discovery
+  - Open Standard
+  - REST API
+  properties:
+  - type: OpenAPI
+    url: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml
+  - type: Overlay
+    url: overlays/agentic-ai-foundation-mcp-registry-overlay.yaml
+  - type: APIReference
+    url: https://registry.modelcontextprotocol.io/docs
+  - type: Documentation
+    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/registry
+  - type: Authentication
+    url: authentication/agentic-ai-foundation-authentication.yml
+  - type: ErrorCatalog
+    url: errors/agentic-ai-foundation-problem-types.yml
+  - type: DataModel
+    url: data-model/agentic-ai-foundation-data-model.yml
+  - type: Conventions
+    url: conventions/agentic-ai-foundation-conventions.yml
+  - type: ToolCrosswalk
+    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
+- aid: agentic-ai-foundation:goose
+  name: Goose AI Agent
+  description: goose is a general-purpose, open-source AI agent that runs locally. Originally from Block and now governed by AAIF, it is written in Rust, ships a
+    desktop app and a CLI for macOS, Linux and Windows, connects to 15+ LLM providers, and extends itself through MCP servers. It can also run as an Agent Client
+    Protocol (ACP) agent server over stdio. Current release v1.48.0 (2026-08-27).
+  humanURL: https://goose-docs.ai/
+  tags:
+  - AI Agent
+  - Open-Source
+  - MCP
+  - CLI
+  - Desktop App
+  - Rust
+  tags_raw:
+  - AI Agent
+  - Open Source
+  - MCP
+  - CLI
+  - Desktop App
+  - Rust
+  properties:
+  - type: Documentation
+    url: https://goose-docs.ai/
+  - type: GettingStarted
+    url: https://goose-docs.ai/docs/quickstart/
+  - type: GitHubRepository
+    url: https://github.com/aaif-goose/goose
+  - type: Blog
+    url: https://goose-docs.ai/blog/
+  - type: CLI
+    url: cli/agentic-ai-foundation-cli.yml
+  - type: Community
+    url: https://discord.com/invite/n8R5VaWDAn
+  - type: Releases
+    url: https://github.com/aaif-goose/goose/releases
+  - type: LLMsTxt
+    url: https://goose-docs.ai/llms.txt
+- aid: agentic-ai-foundation:agents-md
+  name: AGENTS.md
+  description: AGENTS.md is a simple, universal convention that gives AI coding agents a consistent, predictable source of project-specific guidance — build commands,
+    test commands, conventions and constraints — in one Markdown file at the root of a repository. Contributed by OpenAI and hosted by AAIF. It is a format convention
+    rather than a callable API.
+  humanURL: https://agents.md/
+  tags:
+  - AGENTS.md
+  - Coding Agents
+  - Convention
+  - Open Standard
+  properties:
+  - type: Documentation
+    url: https://agents.md/
+  - type: GitHubRepository
+    url: https://github.com/agentsmd/agents.md
+- aid: agentic-ai-foundation:agent2agent
+  name: Agent2Agent (A2A)
+  description: Agent2Agent (A2A) is an open protocol that lets AI agents built by different organisations, on different frameworks, discover each other's capabilities,
+    communicate, delegate tasks and collaborate on multi-step work without sharing internal implementations. Discovery happens through an agent card published at
+    /.well-known/agent-card.json. Hosted by AAIF.
+  humanURL: https://a2a-protocol.org/latest/
+  tags:
+  - A2A
+  - Agent Interoperability
+  - Open Standard
+  - Agent Discovery
+  properties:
+  - type: Documentation
+    url: https://a2a-protocol.org/latest/
+  - type: GitHubRepository
+    url: https://github.com/a2aproject/A2A
+  - type: LLMsTxt
+    url: https://a2a-protocol.org/llms.txt
+- aid: agentic-ai-foundation:agentgateway
+  name: agentgateway
+  description: agentgateway is an open-source data plane for agentic AI — it secures, observes and governs the connections between AI agents, models, MCP tools and
+    APIs across ecosystems. Hosted by AAIF; current release v1.5.0 (2026-08-27). It is self-hosted infrastructure rather than a hosted service, so it exposes no public
+    API endpoint of its own.
+  humanURL: https://agentgateway.dev/
+  tags:
+  - Agent Gateway
+  - MCP
+  - Infrastructure
+  - Open-Source
+  - Security
+  properties:
+  - type: Documentation
+    url: https://agentgateway.dev/
+  - type: GitHubRepository
+    url: https://github.com/agentgateway/agentgateway
+  - type: Releases
+    url: https://github.com/agentgateway/agentgateway/releases
+  - type: LLMsTxt
+    url: https://agentgateway.dev/llms.txt
+common:
+- type: Website
+  url: https://aaif.io/
+- type: Portal
+  url: https://aaif.io/
+- type: DeveloperPortal
+  url: https://aaif.io/projects
+- type: Documentation
+  url: https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro
+- type: APIReference
+  url: https://registry.modelcontextprotocol.io/docs
+- type: GettingStarted
+  url: https://modelcontextprotocol.io/docs/2026-07-28/develop/build-server
+- type: Blog
+  url: https://aaif.io/blog
+- type: News
+  url: https://aaif.io/news
+- type: Support
+  url: https://aaif.io/contact
+- type: Community
+  url: https://discord.com/invite/n8R5VaWDAn
+- type: Roadmap
+  url: https://modelcontextprotocol.io/development/roadmap
+- type: GitHubOrganization
+  url: https://github.com/aaif
+- type: IssueTracker
+  url: https://github.com/modelcontextprotocol/modelcontextprotocol/issues
+- type: Releases
+  url: https://github.com/modelcontextprotocol/modelcontextprotocol/releases
+- type: SecurityPolicy
+  url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/SECURITY.md
+- type: Security
+  url: security/agentic-ai-foundation-vulnerability-disclosure.yml
+- type: VulnerabilityDisclosure
+  url: security/agentic-ai-foundation-vulnerability-disclosure.yml
+- type: SecurityTxt
+  url: well-known/agentic-ai-foundation-security.txt
+- type: WellKnown
+  url: well-known/agentic-ai-foundation-well-known.yml
+- type: DomainSecurity
+  url: security/agentic-ai-foundation-domain-security.yml
+- type: CodeOfConduct
+  url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/CODE_OF_CONDUCT.md
+- type: ContributionGuide
+  url: https://github.com/modelcontextprotocol/modelcontextprotocol/blob/main/CONTRIBUTING.md
+- type: TermsOfService
+  url: https://www.linuxfoundation.org/legal/terms
+- type: PrivacyPolicy
+  url: https://www.linuxfoundation.org/legal/privacy-policy
+- type: LinkedIn
+  url: https://www.linkedin.com/company/agentic-ai-foundation
+- type: MCPServer
+  url: mcp/agentic-ai-foundation-mcp.yml
+- type: ToolCrosswalk
+  url: mcp/agentic-ai-foundation-tool-crosswalk.yml
+- type: AgentCard
+  url: a2a/agentic-ai-foundation-a2a.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/agentic-ai-foundation-llms.txt
+- type: Packages
+  url: packages/agentic-ai-foundation-packages.yml
+- type: SDKs
+  url: packages/agentic-ai-foundation-packages.yml
+- type: CLI
+  url: cli/agentic-ai-foundation-cli.yml
+- type: Authentication
+  url: authentication/agentic-ai-foundation-authentication.yml
+- type: Conventions
+  url: conventions/agentic-ai-foundation-conventions.yml
+- type: ErrorCatalog
+  url: errors/agentic-ai-foundation-problem-types.yml
+- type: DataModel
+  url: data-model/agentic-ai-foundation-data-model.yml
+- type: Conformance
+  url: conformance/agentic-ai-foundation-conformance.yml
+- type: Lifecycle
+  url: lifecycle/agentic-ai-foundation-lifecycle.yml
+- type: ChangeLog
+  url: changelog/agentic-ai-foundation-changelog.yml
+- type: Overlay
+  url: overlays/agentic-ai-foundation-mcp-registry-overlay.yaml
+- type: Plans
+  url: plans/agentic-ai-foundation-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/agentic-ai-foundation-rate-limits.yml
+- type: Vocabulary
+  url: vocabulary/agentic-ai-foundation-vocabulary.yaml
+- type: JSONSchema
+  url: json-schema/agentic-ai-foundation-mcp-protocol-schema.json
+- type: Examples
+  url: examples/agentic-ai-foundation-mcp-tool-example.json
+- type: Rules
+  url: rules/agentic-ai-foundation-jsonschema-spectral-rules.yml
+- type: JSONLD
+  url: json-ld/agentic-ai-foundation-context.jsonld
+- type: Features
+  data:
+  - name: Neutral Open Governance
+    description: All AAIF projects operate under Linux Foundation neutral governance, ensuring no single vendor controls the direction of AI agent standards.
+  - name: Model Context Protocol (MCP)
+    description: MCP is a universal adapter standard enabling AI agents to connect to any external tool, data source, or workflow through a consistent protocol.
+  - name: Cross-Platform Agent Portability
+    description: AAIF standards enable AI agents to run consistently across different platforms, environments, and LLM providers without vendor lock-in.
+  - name: Tool and Extension Ecosystem
+    description: The MCP standard enables a rich ecosystem of 70+ tools and extensions that any compliant agent can discover and invoke.
+  - name: Multi-LLM Provider Support
+    description: AAIF projects support 15+ LLM providers including Anthropic, OpenAI, Google, Azure, and Ollama through standardized provider interfaces.
+  - name: Open Agent Communication
+    description: The Agent Communication Protocol (ACP) enables agents to authenticate and communicate with each other and LLM providers through open standards.
+- type: UseCases
+  data:
+  - name: Interoperable AI Tool Development
+    description: Build MCP-compatible tools once and make them available to any AI agent or client that supports the MCP standard, eliminating integration silos.
+  - name: Enterprise Agent Standardization
+    description: Organizations adopt AAIF standards to ensure their AI agent infrastructure is portable, auditable, and not locked to a single AI vendor.
+  - name: Multi-Agent Workflow Orchestration
+    description: Use AAIF protocols to connect specialized AI agents that collaborate on complex tasks, each contributing domain-specific capabilities.
+  - name: Open-Source Agent Development
+    description: Developers build and extend open-source AI agents like goose using the AAIF ecosystem of standards and extensions.
+- type: Integrations
+  data:
+  - name: Claude (Anthropic)
+    description: Native MCP support via the Anthropic Messages API, the originating implementation of the MCP standard.
+  - name: ChatGPT (OpenAI)
+    description: MCP tool integration via the OpenAI Responses API, enabling ChatGPT to invoke MCP-compatible tools.
+  - name: VS Code
+    description: GitHub Copilot in VS Code supports MCP servers for AI-assisted development through the AAIF MCP standard.
+  - name: Cursor
+    description: Cursor IDE integrates MCP tool support for AI-assisted coding agents.
+  - name: Linux Foundation
+    description: AAIF operates under Linux Foundation governance alongside related projects in the LF AI & Data portfolio.
 maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
+- FN: Kin Lane
+  email: info@apievangelist.com
+
+x-enrichment:
+  date: '2026-08-30'
+  status: enriched
+  artifacts_added: 24
+  pass: local-v1

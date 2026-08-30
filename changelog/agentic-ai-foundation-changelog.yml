@@ -1,0 +1,77 @@
+generated: '2026-08-30'
+method: searched
+source: GitHub releases.atom feeds for modelcontextprotocol/modelcontextprotocol, modelcontextprotocol/registry, aaif-goose/goose and agentgateway/agentgateway, read 2026-08-30
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  AAIF publishes no foundation-level changelog. Each hosted project keeps its own dated release history on
+  GitHub; the recent window across the four projects that tag releases is recorded below. The
+  specification's own history is date-versioned, so its release tag IS its version.
+scheme: per-project
+note: >-
+  aaif.io itself has no changelog, release-notes or "what's new" page, and serves no RSS/Atom feed
+  (/rss.xml, /feed.xml, /blog/rss.xml and /blog/feed all 404).
+projects:
+  - project: Model Context Protocol (specification)
+    scheme: date-based
+    current_version: '2026-07-28'
+    feed: https://github.com/modelcontextprotocol/modelcontextprotocol/releases
+    entries:
+      - version: '2026-07-28'
+        date: '2026-07-28'
+        breaking: true
+        note: >-
+          Current protocol revision. Under MCP's versioning policy a new date revision is minted only for
+          backwards-incompatible change, so the date itself is the breaking-change marker.
+      - version: 2026-07-28 RC
+        date: '2026-07-28'
+        breaking: false
+        note: Release candidate for the revision above.
+      - version: '2025-11-25'
+        date: '2025-11-25'
+        breaking: true
+      - version: 2025-11-25-RC
+        date: '2025-11-15'
+        breaking: false
+  - project: Official MCP Registry
+    scheme: semver
+    current_version: v1.8.1
+    feed: https://github.com/modelcontextprotocol/registry/releases
+    entries:
+      - version: v1.8.1
+        date: '2026-08-06'
+      - version: v1.8.0
+        date: '2026-07-13'
+      - version: v1.7.9
+        date: '2026-05-12'
+      - version: v1.7.8
+        date: '2026-05-05'
+  - project: goose
+    scheme: semver
+    current_version: v1.48.0
+    feed: https://github.com/aaif-goose/goose/releases
+    entries:
+      - version: v1.48.0
+        date: '2026-08-27'
+      - version: v1.47.0
+        date: '2026-08-21'
+      - version: v1.46.0
+        date: '2026-08-12'
+      - version: v1.45.0
+        date: '2026-07-29'
+  - project: agentgateway
+    scheme: semver
+    current_version: v1.5.0
+    feed: https://github.com/agentgateway/agentgateway/releases
+    entries:
+      - version: v1.5.0
+        date: '2026-08-27'
+      - version: v1.5.0-beta.1
+        date: '2026-08-25'
+      - version: v1.4.1
+        date: '2026-07-29'
+      - version: v1.4.0
+        date: '2026-07-27'
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

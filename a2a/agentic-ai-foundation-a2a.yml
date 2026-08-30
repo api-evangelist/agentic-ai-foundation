@@ -1,0 +1,68 @@
+generated: '2026-08-30'
+method: probed
+source: https://modelcontextprotocol.io/.well-known/agent-card.json
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  A2A Agent Card served by the Model Context Protocol project, an AAIF-hosted project. The card was
+  fetched anonymously from the canonical /.well-known/agent-card.json path and saved verbatim. No other
+  AAIF host serves a card: aaif.io, goose-docs.ai, agents.md, a2a-protocol.org, agentgateway.dev and
+  registry.modelcontextprotocol.io all 404 on both the canonical and the legacy /.well-known/agent.json
+  path.
+card: agentic-ai-foundation-agent-card.json
+discovery:
+  path: /.well-known/agent-card.json
+  canonical: true
+  host: modelcontextprotocol.io
+x-evidence:
+  fetched: '2026-08-30'
+  url: https://modelcontextprotocol.io/.well-known/agent-card.json
+  http_status: 200
+  content_type: application/json
+grade: conformant
+grade_basis: >-
+  Graded against A2A 1.0.0. Hard checks all pass — capabilities is an object, protocolVersion is
+  present ("0.3"), and skills is an array. The optional fields preferredTransport,
+  defaultInputModes and defaultOutputModes are all present as well.
+card_summary:
+  name: Model Context Protocol
+  url: https://modelcontextprotocol.io/
+  version: 1.0.0
+  protocolVersion: '0.3'
+  preferredTransport: HTTP+JSON
+  provider_organization: Model Context Protocol
+  documentationUrl: https://modelcontextprotocol.io/
+  capabilities:
+    streaming: false
+    pushNotifications: false
+  defaultInputModes:
+    - text/plain
+  defaultOutputModes:
+    - text/plain
+  skills:
+    - id: draft-sep
+      name: draft-sep
+      description: Research and draft a Specification Enhancement Proposal following the MCP SEP governance process
+      url: https://modelcontextprotocol.io/.well-known/agent-skills/draft-sep/skill.md
+    - id: search-mcp-github
+      name: search-mcp-github
+      description: Search MCP PRs, issues, and discussions across the modelcontextprotocol GitHub org
+      url: https://modelcontextprotocol.io/.well-known/agent-skills/search-mcp-github/skill.md
+deviations:
+  - >-
+    protocolVersion is "0.3" while the card is graded against A2A 1.0.0; the publisher is declaring the
+    0.3 wire protocol, which is permitted but means a 1.0.0-only client cannot assume 1.0 semantics.
+  - >-
+    Both declared skills have empty tags[] arrays, so the card carries no machine-readable capability
+    keywords for skill selection.
+  - >-
+    The card advertises no A2A task endpoint — supportedInterfaces points back at the documentation site
+    itself (https://modelcontextprotocol.io/ over HTTP+JSON). The actual callable agent surface on this
+    host is the MCP endpoint at https://modelcontextprotocol.io/mcp, which the card does not name.
+notes:
+  - >-
+    The skills the card points at are real, fetchable Agent Skill documents (HTTP 200, text/markdown);
+    both are saved verbatim in skills/ and indexed in skills/_index.yml.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

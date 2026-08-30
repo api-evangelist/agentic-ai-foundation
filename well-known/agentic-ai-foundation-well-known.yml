@@ -1,0 +1,124 @@
+generated: '2026-08-30'
+method: probed
+source: live GET of /.well-known/* on every AAIF project host, 2026-08-30
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  Well-known document probe across every host operated by an AAIF-hosted project. Only
+  modelcontextprotocol.io serves anything at /.well-known/: an RFC 9116 security.txt and an A2A agent
+  card (plus two agent-skill documents the card points at). Every other host answers 404. The
+  registry API answers /.well-known/* with an RFC 9457 problem+json 404 that suggests the versioned
+  paths /v0/.well-known/* and /v0.1/.well-known/* — both of which were probed and also 404.
+hosts:
+  - host: modelcontextprotocol.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: agentic-ai-foundation-security.txt
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: ../a2a/agentic-ai-foundation-agent-card.json
+      - path: /.well-known/agent-skills/draft-sep/skill.md
+        status: 200
+        file: ../skills/agentic-ai-foundation-draft-sep.md
+      - path: /.well-known/agent-skills/search-mcp-github/skill.md
+        status: 200
+        file: ../skills/agentic-ai-foundation-search-mcp-github.md
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: aaif.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: registry.modelcontextprotocol.io
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /v0/.well-known/openid-configuration
+        status: 404
+      - path: /v0.1/.well-known/openid-configuration
+        status: 404
+      - path: /v0/.well-known/agent-card.json
+        status: 404
+  - host: goose-docs.ai
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: agents.md
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: a2a-protocol.org
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: agentgateway.dev
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+gaps:
+  - No /.well-known/api-catalog on any host, so there is no machine-readable index of the foundation's APIs.
+  - >-
+    modelcontextprotocol.io/.well-known/security.txt carries a single Contact: line and no Expires:
+    field, which RFC 9116 section 2.5.5 makes REQUIRED; strictly it is a non-conformant security.txt.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

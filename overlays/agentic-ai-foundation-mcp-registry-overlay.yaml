@@ -1,0 +1,55 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Official MCP Registry API
+  version: 1.0.0
+extends: ../openapi/agentic-ai-foundation-mcp-registry-openapi.yaml
+x-provenance:
+  generated: '2026-08-30'
+  method: derived
+  source: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml + live probes of registry.modelcontextprotocol.io
+  note: >-
+    The upstream specification at https://registry.modelcontextprotocol.io/openapi.yaml is stored verbatim
+    and never mutated. Every correction below is expressed as an overlay action so the original stays
+    byte-identical to what the provider serves.
+actions:
+  - target: $
+    description: >-
+      The published document declares no servers[] block at all, so a generated client has no base URL.
+      The live host that serves this document is the base URL.
+    update:
+      servers:
+        - url: https://registry.modelcontextprotocol.io
+          description: Official MCP Registry, production (observed serving this document, HTTP 200, 2026-08-30)
+  - target: $.components
+    description: >-
+      Eight operations declare security [{bearer: []}] but components.securitySchemes is absent from the
+      document, so the scheme name resolves to nothing. Declare it as the HTTP bearer JWT the registry's
+      /auth/* token-exchange endpoints actually issue.
+    update:
+      securitySchemes:
+        bearer:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+          description: >-
+            Registry JWT obtained from one of the /v0/auth/* or /v0.1/auth/* token-exchange endpoints
+            (GitHub OAuth access token, GitHub OIDC token, generic OIDC ID token, DNS signature, or HTTP
+            signature).
+  - target: $.info
+    description: Add contact and licence metadata the published info block omits.
+    update:
+      contact:
+        name: Model Context Protocol registry maintainers
+        url: https://github.com/modelcontextprotocol/registry/issues
+      x-governance:
+        hosted-by: Agentic AI Foundation (Linux Foundation)
+        project: Model Context Protocol
+  - target: $.paths['/v0/servers']
+    description: >-
+      The /v0 path family duplicates the /v0.1 family operation-for-operation. Mark the older prefix so
+      consumers can tell which of the two identical surfaces is current.
+    update:
+      x-api-evangelist-note: >-
+        Duplicate of /v0.1/servers. Both prefixes are live; /v0.1 is the newer of the two version
+        families published in the same document. The provider's own documentation is the authority on
+        which is preferred — this overlay makes no deprecation claim.

@@ -1,0 +1,90 @@
+generated: '2026-08-30'
+method: probed
+source: POST https://modelcontextprotocol.io/mcp {"jsonrpc":"2.0","id":1,"method":"tools/list"}
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  The Model Context Protocol project — the standard AAIF governs — operates a live, anonymous remote MCP
+  server on its own documentation host. tools/list returned HTTP 200 with three tools and full
+  inputSchema for each; the response is saved verbatim as agentic-ai-foundation-mcp-tools-list.json.
+  No authentication, no OAuth challenge, no API key.
+deployment:
+  mode: remote
+  endpoint: https://modelcontextprotocol.io/mcp
+  auth: none
+  verified: probed
+transport: streamable-http
+protocol_response: text/event-stream
+status: live
+tool_count: 3
+tools:
+  - name: search_model_context_protocol
+    title: Search documentation
+    description: >-
+      Search across the Model Context Protocol knowledge base to find relevant information, code examples,
+      API references, and guides.
+    input:
+      query: string (required) — search query
+      version: string (optional) — filter to a specific spec version, e.g. 'v0.7'
+    annotations:
+      readOnlyHint: true
+      destructiveHint: false
+      idempotentHint: true
+      openWorldHint: false
+  - name: query_docs_filesystem_model_context_protocol
+    description: >-
+      Run a read-only shell-like query (rg, grep, find, tree, ls, cat, head, tail, jq and friends) against
+      a virtualized in-memory filesystem containing only the MCP documentation pages and OpenAPI specs.
+      Stateless per call; output truncated to 30KB.
+    input:
+      command: string (required) — the shell-like command to run
+    annotations:
+      readOnlyHint: true
+      destructiveHint: false
+      idempotentHint: true
+      openWorldHint: false
+  - name: submit_feedback
+    title: Submit documentation feedback
+    description: Report a problem with the documentation site so the docs team can fix it.
+    input:
+      path: string (required) — the documentation page path the feedback is about
+      feedback: string (required) — description of the issue or suggestion
+    annotations:
+      readOnlyHint: false
+      destructiveHint: false
+      idempotentHint: false
+      openWorldHint: true
+findings:
+  - >-
+    This is a documentation-assistant server, not a control plane. Two of the three tools are read-only
+    over the MCP docs corpus; submit_feedback is the only write, and it writes a feedback record, not
+    protocol or registry state.
+  - >-
+    The Official MCP Registry API (registry.modelcontextprotocol.io) — the surface an agent would actually
+    call to list, publish or edit MCP servers — is NOT exposed as MCP. POST /mcp there returns an RFC 9457
+    404 suggesting /v0/mcp and /v0.1/mcp; both were probed and also 404. Its 32 REST operations have no
+    MCP projection.
+  - >-
+    Every tool carries the full MCP annotations quartet (readOnlyHint, destructiveHint, idempotentHint,
+    openWorldHint), which is the behaviour the specification recommends and which most servers in the
+    catalog omit.
+probes:
+  - url: https://modelcontextprotocol.io/mcp
+    method: POST tools/list
+    status: 200
+  - url: https://registry.modelcontextprotocol.io/mcp
+    method: POST tools/list
+    status: 404
+  - url: https://registry.modelcontextprotocol.io/v0/mcp
+    method: POST tools/list
+    status: 404
+  - url: https://aaif.io/mcp
+    method: POST tools/list
+    status: 404
+  - url: https://goose-docs.ai/mcp
+    method: POST tools/list
+    status: 404
+raw: agentic-ai-foundation-mcp-tools-list.json
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

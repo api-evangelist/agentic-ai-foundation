@@ -1,0 +1,150 @@
+generated: '2026-08-30'
+method: derived
+source: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml (components.schemas $ref graph)
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  Entity-relationship graph of the Official MCP Registry API, derived from the $ref links between the 28
+  schemas in the published contract. The root entity is ServerJSON — one registry record describing one
+  MCP server — and everything else hangs off it as an installation detail (Package, Transport, Argument)
+  or as registry-owned bookkeeping (RegistryExtensions).
+root_entity: ServerJSON
+identity:
+  primary_key: name
+  format: reverse-DNS namespace, e.g. io.github.<owner>/<server> or com.example/<server>
+  versioning: >-
+    A record is keyed by (name, version). Paths are /v0.1/servers/{serverName}/versions/{version}, so
+    version is part of the identity, not an attribute of a single mutable record.
+  ownership: >-
+    The namespace prefix is the ownership boundary — a publisher must prove control of the GitHub org/user
+    or the DNS domain the name derives from before the registry will accept a publish.
+entities:
+  - name: ServerJSON
+    description: The server record a publisher submits and the registry stores.
+    fields: [$schema, _meta, description, icons, name, packages, remotes, repository, title, version, websiteUrl]
+  - name: ServerResponse
+    description: Read wrapper — a ServerJSON plus registry-owned _meta.
+    fields: [_meta, server]
+  - name: ServerListResponse
+    description: Paged collection wrapper.
+    fields: [servers, metadata]
+  - name: Metadata
+    description: Pagination cursor and count.
+    fields: [count, nextCursor]
+  - name: ServerMeta
+    description: Publisher-provided metadata, namespaced under io.modelcontextprotocol.registry/publisher-provided.
+  - name: ResponseMeta
+    description: Registry-provided metadata, namespaced under io.modelcontextprotocol.registry/official.
+  - name: RegistryExtensions
+    description: The registry's own bookkeeping for a record — this is where lifecycle state lives.
+    fields: [isLatest, publishedAt, status, statusChangedAt, statusMessage, updatedAt]
+  - name: Package
+    description: One installable distribution of the server (npm, pypi, oci, nuget, mcpb …).
+    fields: [environmentVariables, fileSha256, identifier, packageArguments, registryBaseUrl, registryType, runtimeArguments, runtimeHint, transport, version]
+  - name: Transport
+    description: How a client talks to the server — stdio, streamable-http or sse, with url/headers when remote.
+    fields: [headers, type, url, variables]
+  - name: Repository
+    description: Source repository the server is built from.
+    fields: [id, source, subfolder, url]
+  - name: Icon
+    fields: [mimeType, sizes, src, theme]
+  - name: Argument
+    description: A command-line argument the runtime or package takes.
+    fields: [choices, default, description, format, isRepeated, isRequired, isSecret, name, placeholder, type, value, valueHint, variables]
+  - name: KeyValueInput
+    description: A named environment variable or header value.
+  - name: Input
+    description: The base value/prompt shape Argument and KeyValueInput extend.
+    fields: [choices, default, description, format, isRequired, isSecret, placeholder, value]
+  - name: ValidationResult
+    fields: [issues, valid]
+  - name: ValidationIssue
+    fields: [message, path, reference, severity, type]
+  - name: TokenResponse
+    description: The Registry JWT returned by any /auth/* exchange.
+relationships:
+  - from: ServerJSON
+    to: Package
+    type: has_many
+    via: packages[]
+  - from: ServerJSON
+    to: Transport
+    type: has_many
+    via: remotes[]
+    note: A remote entry IS a Transport — this is how a hosted (URL-callable) MCP server is registered.
+  - from: ServerJSON
+    to: Repository
+    type: has_one
+    via: repository
+  - from: ServerJSON
+    to: Icon
+    type: has_many
+    via: icons[]
+  - from: ServerJSON
+    to: ServerMeta
+    type: has_one
+    via: _meta
+  - from: ServerResponse
+    to: ServerJSON
+    type: has_one
+    via: server
+  - from: ServerResponse
+    to: ResponseMeta
+    type: has_one
+    via: _meta
+  - from: ResponseMeta
+    to: RegistryExtensions
+    type: has_one
+    via: io.modelcontextprotocol.registry/official
+  - from: ServerListResponse
+    to: ServerResponse
+    type: has_many
+    via: servers[]
+  - from: ServerListResponse
+    to: Metadata
+    type: has_one
+    via: metadata
+  - from: Package
+    to: Transport
+    type: has_one
+    via: transport
+  - from: Package
+    to: Argument
+    type: has_many
+    via: packageArguments[], runtimeArguments[]
+  - from: Package
+    to: KeyValueInput
+    type: has_many
+    via: environmentVariables[]
+  - from: Transport
+    to: KeyValueInput
+    type: has_many
+    via: headers[]
+  - from: Transport
+    to: Input
+    type: has_many
+    via: variables
+  - from: Argument
+    to: Input
+    type: belongs_to
+    via: variables
+  - from: ValidationResult
+    to: ValidationIssue
+    type: has_many
+    via: issues[]
+lifecycle_state:
+  location: ResponseMeta -> RegistryExtensions
+  fields:
+    status: active | deprecated | deleted
+    statusMessage: free text up to 500 characters
+    statusChangedAt: RFC3339 timestamp
+    isLatest: boolean, marks the current version of a named server
+    publishedAt: RFC3339 timestamp
+    updatedAt: RFC3339 timestamp — the field the updated_since incremental-sync filter compares against
+  note: >-
+    Lifecycle state is registry-owned and lives OUTSIDE the publisher's document, which is why a publisher
+    cannot set its own status in a publish call and must use the PATCH status operations instead.
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

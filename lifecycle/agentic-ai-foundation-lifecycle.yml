@@ -1,0 +1,74 @@
+generated: '2026-08-30'
+method: searched
+source: https://modelcontextprotocol.io/docs/2026-07-28/learn/versioning + openapi/agentic-ai-foundation-mcp-registry-openapi.yaml + GitHub release feeds
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: >-
+  Versioning, deprecation and availability posture across the AAIF-hosted projects. The specification
+  itself is date-versioned and its policy is published; the registry API is URL-prefix versioned with no
+  published deprecation policy; nothing on any host is monitored by a status page.
+specification_versioning:
+  project: Model Context Protocol
+  scheme: date-based (YYYY-MM-DD)
+  current: '2026-07-28'
+  previous:
+    - '2025-11-25'
+  policy_url: https://modelcontextprotocol.io/docs/2026-07-28/learn/versioning
+  detail: >-
+    Protocol revisions are identified by the date the set of backwards-incompatible changes was finalised.
+    Backwards-compatible additions do not mint a new revision. Version negotiation happens in the
+    initialize handshake.
+  release_feed: https://github.com/modelcontextprotocol/modelcontextprotocol/releases
+api_versioning:
+  api: Official MCP Registry
+  scheme: url-prefix
+  current: /v0.1
+  also_live: /v0
+  version_endpoint: GET /v0.1/version (get-version-v0.1)
+  detail: >-
+    Both prefixes serve the same 16 operations and both are live as of 2026-08-30. The contract makes no
+    statement about which is preferred and marks nothing deprecated.
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  detail: >-
+    No operation in the registry contract carries `deprecated: true`, no RFC 8594 Sunset or Deprecation
+    header was observed on any probed response, and no deprecation policy page was found on any AAIF host.
+  provider_side_deprecation: >-
+    The registry does expose deprecation as a first-class state for the servers it CATALOGS — the
+    UpdateServerStatusBody status enum is active | deprecated | deleted with an optional 500-character
+    statusMessage — so a publisher can signal its own server's deprecation through the registry even
+    though the registry publishes no policy for its own API.
+status_page:
+  published: false
+  detail: >-
+    status.modelcontextprotocol.io and status.aaif.io do not resolve (NXDOMAIN, probed 2026-08-30). The
+    only availability signal is the API's own liveness endpoints, GET /v0/health and GET /v0/ping, which
+    are unauthenticated and return 200.
+  health_endpoint: https://registry.modelcontextprotocol.io/v0/health
+sla:
+  published: false
+  detail: No service-level agreement is published for any AAIF-hosted surface. All projects are open-source and community-operated.
+project_releases:
+  - project: goose
+    latest: v1.48.0
+    released: '2026-08-27'
+    feed: https://github.com/aaif-goose/goose/releases
+  - project: Official MCP Registry
+    latest: v1.8.1
+    released: '2026-08-06'
+    feed: https://github.com/modelcontextprotocol/registry/releases
+  - project: agentgateway
+    latest: v1.5.0
+    released: '2026-08-27'
+    feed: https://github.com/agentgateway/agentgateway/releases
+  - project: Model Context Protocol specification
+    latest: '2026-07-28'
+    released: '2026-07-28'
+    feed: https://github.com/modelcontextprotocol/modelcontextprotocol/releases
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com

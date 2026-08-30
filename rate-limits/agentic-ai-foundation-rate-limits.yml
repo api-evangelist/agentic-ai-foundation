@@ -1,99 +1,48 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+generated: '2026-08-30'
+method: probed
+source: live responses from registry.modelcontextprotocol.io and modelcontextprotocol.io/mcp, 2026-08-30, plus https://registry.modelcontextprotocol.io/docs
 provider: Agentic AI Foundation
 providerId: agentic-ai-foundation
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - AI Agents
-  - Linux Foundation
-  - Open Source
-  - Standards
-  - MCP
-  - Agentic AI
-  - Interoperability
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Agentic AI Foundation API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
+description: >-
+  No AAIF-hosted API publishes rate limits, and none was observed signalling any at runtime. Response
+  headers on every probed call carried no X-RateLimit-*, no RateLimit-* and no Retry-After. An agent
+  calling these surfaces has no runtime budget signal to read.
+limit_count: 0
+documented: false
+headers_observed: []
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  limit: null
+  remaining: null
+  reset: null
+  retryAfter: null
+  policy: null
 responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Model Context Protocol (MCP)
-      - Goose AI Agent
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Model Context Protocol (MCP)
-      - Goose AI Agent
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Model Context Protocol (MCP)
-      - Goose AI Agent
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Model Context Protocol (MCP)
-      - Goose AI Agent
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Model Context Protocol (MCP)
-      - Goose AI Agent
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  throttled: null
+  note: >-
+    429 is not documented for any operation. The registry contract enumerates only 200 and a `default`
+    RFC 9457 problem response per operation, so a throttling status would arrive through `default` with no
+    contract-level warning.
+evidence:
+  - url: https://registry.modelcontextprotocol.io/v0/health
+    status: 200
+    headers_returned: [date, content-type, content-length, vary, strict-transport-security]
+    finding: No rate-limit header of any family.
+  - url: https://modelcontextprotocol.io/mcp
+    method: POST tools/list
+    status: 200
+    finding: No rate-limit header; three consecutive calls all returned 200.
+  - url: https://registry.modelcontextprotocol.io/docs
+    status: 200
+    finding: API documentation publishes no limits, quotas or throttling policy.
+gaps:
+  - >-
+    The registry is a public, unauthenticated read surface that any agent can poll. Publishing even a
+    conservative documented limit plus RateLimit-* headers would be the single cheapest agent-readiness
+    improvement available to it.
+supersedes: >-
+  This file replaces a 2026-05-04 bulk-sweep scaffold that asserted free/professional/enterprise tiers at
+  10/100/1000 requests per minute with X-RateLimit-* headers. None of that was ever published by this
+  provider or observed on the wire; it was a generated default and is removed rather than carried forward.
 maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com

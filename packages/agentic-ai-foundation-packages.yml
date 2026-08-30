@@ -1,0 +1,150 @@
+generated: '2026-08-30'
+method: searched
+source: registry.npmjs.org, pypi.org, crates.io, proxy.golang.org, repo1.maven.org, api.nuget.org, rubygems.org, github.com release feeds
+provider: Agentic AI Foundation
+providerId: agentic-ai-foundation
+description: First-party client libraries, SDKs and reference servers published by the projects the Agentic
+  AI Foundation hosts. The Model Context Protocol SDKs are published by the modelcontextprotocol GitHub
+  organisation (the project AAIF governs); goose and agentgateway ship binaries from GitHub releases rather
+  than a language registry.
+note: >-
+  AAIF itself publishes no packages under its own name. Every entry below is published by an AAIF-hosted
+  project (MCP, goose, agentgateway) and is marked official:true only where the registry metadata resolves
+  to that project's own GitHub organisation.
+packages:
+  - name: '@modelcontextprotocol/sdk'
+    registry: npm
+    url: https://www.npmjs.com/package/@modelcontextprotocol/sdk
+    language: typescript
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/typescript-sdk
+    version: 1.30.0
+    published: '2026-07-27'
+  - name: '@modelcontextprotocol/inspector'
+    registry: npm
+    url: https://www.npmjs.com/package/@modelcontextprotocol/inspector
+    language: typescript
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/inspector
+    version: 2.4.0
+    published: '2026-08-26'
+    note: Developer tool for testing and debugging MCP servers, not a client library.
+  - name: '@modelcontextprotocol/server-everything'
+    registry: npm
+    url: https://www.npmjs.com/package/@modelcontextprotocol/server-everything
+    language: typescript
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/servers
+    version: 2026.8.18
+    published: '2026-08-18'
+    note: Reference MCP server exercising every protocol feature; date-versioned.
+  - name: mcp
+    registry: pypi
+    url: https://pypi.org/project/mcp/
+    language: python
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/python-sdk
+    version: 2.1.1
+    published: '2026-08-25'
+  - name: rmcp
+    registry: crates.io
+    url: https://crates.io/crates/rmcp
+    language: rust
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/rust-sdk
+    version: 3.1.4
+    published: '2026-08-20'
+  - name: github.com/modelcontextprotocol/go-sdk
+    registry: pkg.go.dev
+    url: https://pkg.go.dev/github.com/modelcontextprotocol/go-sdk
+    language: go
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/go-sdk
+    version: v1.7.0
+    published: '2026-07-27'
+  - name: io.modelcontextprotocol.sdk:mcp
+    registry: maven
+    url: https://repo1.maven.org/maven2/io/modelcontextprotocol/sdk/mcp/
+    language: java
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/java-sdk
+    version: 2.0.1
+    published: '2026-08-19'
+    note: >-
+      Date read from the Maven Central maven-metadata.xml lastUpdated field (20260819143251); Maven Central
+      publishes no per-artifact release date endpoint. The same coordinate group also ships mcp-bom,
+      mcp-core, mcp-json, mcp-spring-webflux, mcp-spring-webmvc, server-servlet and conformance-tests.
+  - name: io.modelcontextprotocol:kotlin-sdk
+    registry: maven
+    url: https://repo1.maven.org/maven2/io/modelcontextprotocol/kotlin-sdk/
+    language: kotlin
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/kotlin-sdk
+    version: 0.15.0
+    published: '2026-07-28'
+    note: Date from maven-metadata.xml lastUpdated (20260728).
+  - name: ModelContextProtocol
+    registry: nuget
+    url: https://www.nuget.org/packages/ModelContextProtocol
+    language: csharp
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/csharp-sdk
+    version: 2.2.0
+    published: '2026-08-13'
+  - name: mcp
+    registry: rubygems
+    url: https://rubygems.org/gems/mcp
+    language: ruby
+    official: true
+    project: Model Context Protocol
+    repository: https://github.com/modelcontextprotocol/ruby-sdk
+    version: 1.4.0
+    published: '2026-08-28'
+  - name: goose
+    registry: github-releases
+    url: https://github.com/aaif-goose/goose/releases
+    language: rust
+    official: true
+    project: goose
+    repository: https://github.com/aaif-goose/goose
+    version: v1.48.0
+    published: '2026-08-27'
+    note: >-
+      goose is distributed as signed platform binaries from GitHub releases and as the Homebrew cask
+      block-goose; there is no language-registry package. Version and date read from the repository's
+      releases.atom feed. The `goose` crate on crates.io is an unrelated load-testing tool
+      (tag1consulting/goose) and is deliberately excluded.
+  - name: agentgateway
+    registry: github-releases
+    url: https://github.com/agentgateway/agentgateway/releases
+    language: rust
+    official: true
+    project: agentgateway
+    repository: https://github.com/agentgateway/agentgateway
+    version: v1.5.0
+    published: '2026-08-27'
+  - name: mcp-publisher
+    registry: github-releases
+    url: https://github.com/modelcontextprotocol/registry/releases
+    language: go
+    official: true
+    project: Official MCP Registry
+    repository: https://github.com/modelcontextprotocol/registry
+    version: v1.8.1
+    published: '2026-08-06'
+    note: >-
+      The registry repository ships the mcp-publisher CLI alongside the server; version and date are the
+      repository's latest tagged release, not a per-binary registry record.
+sdk_count: 8
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
