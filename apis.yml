@@ -113,7 +113,7 @@ apis:
   - Registry
   - Server Discovery
   - Open Standard
-  - REST
+  - REST API
   tags_raw:
   - MCP
   - Registry
@@ -185,6 +185,11 @@ apis:
     rather than a callable API.
   humanURL: https://agents.md/
   tags:
+  - AGENTS.md
+  - Coding Agents
+  - Conventions
+  - Open Standard
+  tags_raw:
   - AGENTS.md
   - Coding Agents
   - Convention
