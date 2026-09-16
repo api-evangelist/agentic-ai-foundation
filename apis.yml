@@ -65,9 +65,12 @@ specificationVersion: '0.23'
 apis:
 - aid: agentic-ai-foundation:model-context-protocol
   name: Model Context Protocol (MCP)
-  description: The Model Context Protocol (MCP) is an open JSON-RPC 2.0 standard for connecting AI applications to external systems — tools, resources and reusable
-    prompt templates. Originally developed by Anthropic and donated to the Agentic AI Foundation, it is date-versioned; the current revision is 2026-07-28. The documentation
-    host also operates a live, anonymous remote MCP server at /mcp exposing three tools, and serves an A2A agent card and two Agent Skills from /.well-known/.
+  description: >-
+    The Model Context Protocol (MCP) is an open JSON-RPC 2.0 standard for connecting AI applications to
+    external systems — tools, resources and reusable prompt templates. Originally developed by Anthropic
+    and donated to the Agentic AI Foundation, it is date-versioned; the current revision is 2026-07-28.
+    The documentation host also operates a live, anonymous remote MCP server at /mcp exposing three tools,
+    and serves an A2A agent card and two Agent Skills from /.well-known/.
   humanURL: https://modelcontextprotocol.io/
   tags:
   - MCP
@@ -100,52 +103,13 @@ apis:
   - type: LLMsTxt
     url: https://modelcontextprotocol.io/llms.txt
   baseURL: https://modelcontextprotocol.io/mcp
-- aid: agentic-ai-foundation:mcp-registry
-  name: Official MCP Registry API
-  description: The Official MCP Registry is the community registry service for Model Context Protocol servers, run by the MCP project. Its REST API publishes a full
-    OpenAPI 3.1.0 contract with 32 operations across two live version prefixes (/v0.1 and /v0). Reads are anonymous — list, search and fetch server records with cursor
-    pagination and an updated_since incremental-sync filter; writes require a Registry JWT minted by proving namespace ownership through GitHub OAuth, GitHub or generic
-    OIDC, a DNS signature, or an HTTP signature. Errors are RFC 9457 problem details.
-  humanURL: https://registry.modelcontextprotocol.io/docs
-  baseURL: https://registry.modelcontextprotocol.io
-  tags:
-  - MCP
-  - Registry
-  - Server Discovery
-  - Open Standard
-  - REST API
-  tags_raw:
-  - MCP
-  - Registry
-  - Server Discovery
-  - Open Standard
-  - REST API
-  properties:
-  - type: OpenAPI
-    url: openapi/agentic-ai-foundation-mcp-registry-openapi.yaml
-  - type: Overlay
-    url: overlays/agentic-ai-foundation-mcp-registry-overlay.yaml
-  - type: APIReference
-    url: https://registry.modelcontextprotocol.io/docs
-  - type: Documentation
-    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
-  - type: GitHubRepository
-    url: https://github.com/modelcontextprotocol/registry
-  - type: Authentication
-    url: authentication/agentic-ai-foundation-authentication.yml
-  - type: ErrorCatalog
-    url: errors/agentic-ai-foundation-problem-types.yml
-  - type: DataModel
-    url: data-model/agentic-ai-foundation-data-model.yml
-  - type: Conventions
-    url: conventions/agentic-ai-foundation-conventions.yml
-  - type: ToolCrosswalk
-    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
 - aid: agentic-ai-foundation:goose
   name: Goose AI Agent
-  description: goose is a general-purpose, open-source AI agent that runs locally. Originally from Block and now governed by AAIF, it is written in Rust, ships a
-    desktop app and a CLI for macOS, Linux and Windows, connects to 15+ LLM providers, and extends itself through MCP servers. It can also run as an Agent Client
-    Protocol (ACP) agent server over stdio. Current release v1.48.0 (2026-08-27).
+  description: >-
+    goose is a general-purpose, open-source AI agent that runs locally. Originally from Block and now
+    governed by AAIF, it is written in Rust, ships a desktop app and a CLI for macOS, Linux and Windows,
+    connects to 15+ LLM providers, and extends itself through MCP servers. It can also run as an Agent
+    Client Protocol (ACP) agent server over stdio. Current release v1.48.0 (2026-08-27).
   humanURL: https://goose-docs.ai/
   tags:
   - AI Agent
@@ -180,9 +144,11 @@ apis:
     url: https://goose-docs.ai/llms.txt
 - aid: agentic-ai-foundation:agents-md
   name: AGENTS.md
-  description: AGENTS.md is a simple, universal convention that gives AI coding agents a consistent, predictable source of project-specific guidance — build commands,
-    test commands, conventions and constraints — in one Markdown file at the root of a repository. Contributed by OpenAI and hosted by AAIF. It is a format convention
-    rather than a callable API.
+  description: >-
+    AGENTS.md is a simple, universal convention that gives AI coding agents a consistent, predictable
+    source of project-specific guidance — build commands, test commands, conventions and constraints —
+    in one Markdown file at the root of a repository. Contributed by OpenAI and hosted by AAIF. It is
+    a format convention rather than a callable API.
   humanURL: https://agents.md/
   tags:
   - AGENTS.md
@@ -201,8 +167,10 @@ apis:
     url: https://github.com/agentsmd/agents.md
 - aid: agentic-ai-foundation:agent2agent
   name: Agent2Agent (A2A)
-  description: Agent2Agent (A2A) is an open protocol that lets AI agents built by different organisations, on different frameworks, discover each other's capabilities,
-    communicate, delegate tasks and collaborate on multi-step work without sharing internal implementations. Discovery happens through an agent card published at
+  description: >-
+    Agent2Agent (A2A) is an open protocol that lets AI agents built by different organisations, on different
+    frameworks, discover each other's capabilities, communicate, delegate tasks and collaborate on multi-step
+    work without sharing internal implementations. Discovery happens through an agent card published at
     /.well-known/agent-card.json. Hosted by AAIF.
   humanURL: https://a2a-protocol.org/latest/
   tags:
@@ -219,8 +187,10 @@ apis:
     url: https://a2a-protocol.org/llms.txt
 - aid: agentic-ai-foundation:agentgateway
   name: agentgateway
-  description: agentgateway is an open-source data plane for agentic AI — it secures, observes and governs the connections between AI agents, models, MCP tools and
-    APIs across ecosystems. Hosted by AAIF; current release v1.5.0 (2026-08-27). It is self-hosted infrastructure rather than a hosted service, so it exposes no public
+  description: >-
+    agentgateway is an open-source data plane for agentic AI — it secures, observes and governs the connections
+    between AI agents, models, MCP tools and APIs across ecosystems. Hosted by AAIF; current release v1.5.0
+    (2026-08-27). It is self-hosted infrastructure rather than a hosted service, so it exposes no public
     API endpoint of its own.
   humanURL: https://agentgateway.dev/
   tags:
@@ -238,6 +208,188 @@ apis:
     url: https://github.com/agentgateway/agentgateway/releases
   - type: LLMsTxt
     url: https://agentgateway.dev/llms.txt
+- aid: agentic-ai-foundation:agentic-ai-foundation-auth-api
+  name: Agentic AI Foundation Auth API
+  description: Authentication operations for obtaining tokens to publish servers
+  humanURL: https://modelcontextprotocol.io/
+  baseURL: https://modelcontextprotocol.io/mcp
+  tags:
+  - auth
+  properties:
+  - type: OpenAPI
+    url: openapi/agentic-ai-foundation-auth-api-openapi.yml
+  - type: APIReference
+    url: https://registry.modelcontextprotocol.io/docs
+  - type: Documentation
+    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/registry
+  - type: Authentication
+    url: authentication/agentic-ai-foundation-authentication.yml
+  - type: ErrorCatalog
+    url: errors/agentic-ai-foundation-problem-types.yml
+  - type: DataModel
+    url: data-model/agentic-ai-foundation-data-model.yml
+  - type: Conventions
+    url: conventions/agentic-ai-foundation-conventions.yml
+  - type: ToolCrosswalk
+    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
+- aid: agentic-ai-foundation:agentic-ai-foundation-health-api
+  name: Agentic AI Foundation Health API
+  description: Health check endpoint for monitoring service availability
+  humanURL: https://modelcontextprotocol.io/
+  baseURL: https://modelcontextprotocol.io/mcp
+  tags:
+  - health
+  properties:
+  - type: OpenAPI
+    url: openapi/agentic-ai-foundation-health-api-openapi.yml
+  - type: APIReference
+    url: https://registry.modelcontextprotocol.io/docs
+  - type: Documentation
+    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/registry
+  - type: Authentication
+    url: authentication/agentic-ai-foundation-authentication.yml
+  - type: ErrorCatalog
+    url: errors/agentic-ai-foundation-problem-types.yml
+  - type: DataModel
+    url: data-model/agentic-ai-foundation-data-model.yml
+  - type: Conventions
+    url: conventions/agentic-ai-foundation-conventions.yml
+  - type: ToolCrosswalk
+    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
+- aid: agentic-ai-foundation:agentic-ai-foundation-ping-api
+  name: Agentic AI Foundation Ping API
+  description: Simple ping endpoint for testing connectivity
+  humanURL: https://modelcontextprotocol.io/
+  baseURL: https://modelcontextprotocol.io/mcp
+  tags:
+  - ping
+  properties:
+  - type: OpenAPI
+    url: openapi/agentic-ai-foundation-ping-api-openapi.yml
+  - type: APIReference
+    url: https://registry.modelcontextprotocol.io/docs
+  - type: Documentation
+    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/registry
+  - type: Authentication
+    url: authentication/agentic-ai-foundation-authentication.yml
+  - type: ErrorCatalog
+    url: errors/agentic-ai-foundation-problem-types.yml
+  - type: DataModel
+    url: data-model/agentic-ai-foundation-data-model.yml
+  - type: Conventions
+    url: conventions/agentic-ai-foundation-conventions.yml
+  - type: ToolCrosswalk
+    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
+- aid: agentic-ai-foundation:agentic-ai-foundation-publish-api
+  name: Agentic AI Foundation Publish API
+  description: Operations for publishing MCP servers to the registry
+  humanURL: https://modelcontextprotocol.io/
+  baseURL: https://modelcontextprotocol.io/mcp
+  tags:
+  - publish
+  properties:
+  - type: OpenAPI
+    url: openapi/agentic-ai-foundation-publish-api-openapi.yml
+  - type: APIReference
+    url: https://registry.modelcontextprotocol.io/docs
+  - type: Documentation
+    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/registry
+  - type: Authentication
+    url: authentication/agentic-ai-foundation-authentication.yml
+  - type: ErrorCatalog
+    url: errors/agentic-ai-foundation-problem-types.yml
+  - type: DataModel
+    url: data-model/agentic-ai-foundation-data-model.yml
+  - type: Conventions
+    url: conventions/agentic-ai-foundation-conventions.yml
+  - type: ToolCrosswalk
+    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
+- aid: agentic-ai-foundation:agentic-ai-foundation-servers-api
+  name: Agentic AI Foundation Servers API
+  description: Operations for discovering and retrieving MCP servers
+  humanURL: https://modelcontextprotocol.io/
+  baseURL: https://modelcontextprotocol.io/mcp
+  tags:
+  - servers
+  properties:
+  - type: OpenAPI
+    url: openapi/agentic-ai-foundation-servers-api-openapi.yml
+  - type: APIReference
+    url: https://registry.modelcontextprotocol.io/docs
+  - type: Documentation
+    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/registry
+  - type: Authentication
+    url: authentication/agentic-ai-foundation-authentication.yml
+  - type: ErrorCatalog
+    url: errors/agentic-ai-foundation-problem-types.yml
+  - type: DataModel
+    url: data-model/agentic-ai-foundation-data-model.yml
+  - type: Conventions
+    url: conventions/agentic-ai-foundation-conventions.yml
+  - type: ToolCrosswalk
+    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
+- aid: agentic-ai-foundation:agentic-ai-foundation-validate-api
+  name: Agentic AI Foundation Validate API
+  description: The validate API from Agentic AI Foundation — 2 operation(s) for validate.
+  humanURL: https://modelcontextprotocol.io/
+  baseURL: https://modelcontextprotocol.io/mcp
+  tags:
+  - validate
+  properties:
+  - type: OpenAPI
+    url: openapi/agentic-ai-foundation-validate-api-openapi.yml
+  - type: APIReference
+    url: https://registry.modelcontextprotocol.io/docs
+  - type: Documentation
+    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/registry
+  - type: Authentication
+    url: authentication/agentic-ai-foundation-authentication.yml
+  - type: ErrorCatalog
+    url: errors/agentic-ai-foundation-problem-types.yml
+  - type: DataModel
+    url: data-model/agentic-ai-foundation-data-model.yml
+  - type: Conventions
+    url: conventions/agentic-ai-foundation-conventions.yml
+  - type: ToolCrosswalk
+    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
+- aid: agentic-ai-foundation:agentic-ai-foundation-version-api
+  name: Agentic AI Foundation Version API
+  description: Version information endpoint for retrieving build and version details
+  humanURL: https://modelcontextprotocol.io/
+  baseURL: https://modelcontextprotocol.io/mcp
+  tags:
+  - version
+  properties:
+  - type: OpenAPI
+    url: openapi/agentic-ai-foundation-version-api-openapi.yml
+  - type: APIReference
+    url: https://registry.modelcontextprotocol.io/docs
+  - type: Documentation
+    url: https://github.com/modelcontextprotocol/registry/tree/main/docs
+  - type: GitHubRepository
+    url: https://github.com/modelcontextprotocol/registry
+  - type: Authentication
+    url: authentication/agentic-ai-foundation-authentication.yml
+  - type: ErrorCatalog
+    url: errors/agentic-ai-foundation-problem-types.yml
+  - type: DataModel
+    url: data-model/agentic-ai-foundation-data-model.yml
+  - type: Conventions
+    url: conventions/agentic-ai-foundation-conventions.yml
+  - type: ToolCrosswalk
+    url: mcp/agentic-ai-foundation-tool-crosswalk.yml
 common:
 - type: Website
   url: https://aaif.io/
