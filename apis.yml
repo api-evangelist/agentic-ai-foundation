@@ -112,7 +112,7 @@ apis:
     Client Protocol (ACP) agent server over stdio. Current release v1.48.0 (2026-08-27).
   humanURL: https://goose-docs.ai/
   tags:
-  - AI Agent
+  - AI Agents
   - Open-Source
   - MCP
   - CLI
@@ -214,6 +214,8 @@ apis:
   humanURL: https://modelcontextprotocol.io/
   baseURL: https://modelcontextprotocol.io/mcp
   tags:
+  - Authentication
+  tags_raw:
   - auth
   properties:
   - type: OpenAPI
@@ -240,6 +242,8 @@ apis:
   humanURL: https://modelcontextprotocol.io/
   baseURL: https://modelcontextprotocol.io/mcp
   tags:
+  - Health
+  tags_raw:
   - health
   properties:
   - type: OpenAPI
@@ -266,6 +270,8 @@ apis:
   humanURL: https://modelcontextprotocol.io/
   baseURL: https://modelcontextprotocol.io/mcp
   tags:
+  - Ping
+  tags_raw:
   - ping
   properties:
   - type: OpenAPI
@@ -292,6 +298,8 @@ apis:
   humanURL: https://modelcontextprotocol.io/
   baseURL: https://modelcontextprotocol.io/mcp
   tags:
+  - Publish
+  tags_raw:
   - publish
   properties:
   - type: OpenAPI
@@ -318,6 +326,8 @@ apis:
   humanURL: https://modelcontextprotocol.io/
   baseURL: https://modelcontextprotocol.io/mcp
   tags:
+  - Servers
+  tags_raw:
   - servers
   properties:
   - type: OpenAPI
@@ -344,6 +354,8 @@ apis:
   humanURL: https://modelcontextprotocol.io/
   baseURL: https://modelcontextprotocol.io/mcp
   tags:
+  - Validate
+  tags_raw:
   - validate
   properties:
   - type: OpenAPI
@@ -370,6 +382,8 @@ apis:
   humanURL: https://modelcontextprotocol.io/
   baseURL: https://modelcontextprotocol.io/mcp
   tags:
+  - Version
+  tags_raw:
   - version
   properties:
   - type: OpenAPI
