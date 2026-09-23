@@ -1,0 +1,33 @@
+{
+  "provider": "agentic-ai-foundation",
+  "sources": [
+    "_original/agentic-ai-foundation-mcp-registry-openapi.yaml"
+  ],
+  "outputs": [
+    "agentic-ai-foundation-auth-api-openapi.yml",
+    "agentic-ai-foundation-health-api-openapi.yml",
+    "agentic-ai-foundation-ping-api-openapi.yml",
+    "agentic-ai-foundation-publish-api-openapi.yml",
+    "agentic-ai-foundation-servers-api-openapi.yml",
+    "agentic-ai-foundation-validate-api-openapi.yml",
+    "agentic-ai-foundation-version-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "agentic-ai-foundation-mcp-registry-openapi.yaml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "agentic-ai-foundation-mcp-registry-openapi.yaml: declared missing tag: validate",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "agentic-ai-foundation-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agentic-ai-foundation-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agentic-ai-foundation-ping-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agentic-ai-foundation-publish-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agentic-ai-foundation-servers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agentic-ai-foundation-validate-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "agentic-ai-foundation-version-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

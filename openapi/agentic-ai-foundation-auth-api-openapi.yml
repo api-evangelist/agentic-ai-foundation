@@ -1,0 +1,388 @@
+openapi: 3.2.0
+info:
+  description: 'A community driven registry service for Model Context Protocol (MCP) servers.
+
+
+    GitHub repository | Documentation'
+  title: Official MCP Registry Auth API
+  version: 1.0.0
+tags:
+- description: Authentication operations for obtaining tokens to publish servers
+  name: Auth
+paths:
+  /v0.1/auth/dns:
+    post:
+      description: Authenticate using DNS TXT record public key and signed timestamp
+      operationId: exchange-dns-token-v0.1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureTokenExchangeInput'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange DNS signature for Registry JWT
+      tags:
+      - Auth
+  /v0.1/auth/github-at:
+    post:
+      description: Exchange a GitHub OAuth access token for a short-lived Registry JWT token
+      operationId: exchange-github-token-v0.1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GitHubTokenExchangeInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange GitHub OAuth access token for Registry JWT
+      tags:
+      - Auth
+  /v0.1/auth/github-oidc:
+    post:
+      description: Exchange a GitHub Actions OIDC token for a short-lived Registry JWT token
+      operationId: exchange-github-oidc-token-v0.1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GitHubOIDCTokenExchangeInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange GitHub OIDC token for Registry JWT
+      tags:
+      - Auth
+  /v0.1/auth/http:
+    post:
+      description: Authenticate using HTTP-hosted public key and signed timestamp
+      operationId: exchange-http-token-v0.1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureTokenExchangeInput'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange HTTP signature for Registry JWT
+      tags:
+      - Auth
+  /v0.1/auth/oidc:
+    post:
+      description: Exchange an OIDC ID token from any configured provider for a short-lived Registry JWT token
+      operationId: exchange-oidc-token-v0.1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCTokenExchangeInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange OIDC ID token for Registry JWT
+      tags:
+      - Auth
+  /v0/auth/dns:
+    post:
+      description: Authenticate using DNS TXT record public key and signed timestamp
+      operationId: exchange-dns-token-v0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureTokenExchangeInput'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange DNS signature for Registry JWT
+      tags:
+      - Auth
+  /v0/auth/github-at:
+    post:
+      description: Exchange a GitHub OAuth access token for a short-lived Registry JWT token
+      operationId: exchange-github-token-v0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GitHubTokenExchangeInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange GitHub OAuth access token for Registry JWT
+      tags:
+      - Auth
+  /v0/auth/github-oidc:
+    post:
+      description: Exchange a GitHub Actions OIDC token for a short-lived Registry JWT token
+      operationId: exchange-github-oidc-token-v0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GitHubOIDCTokenExchangeInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange GitHub OIDC token for Registry JWT
+      tags:
+      - Auth
+  /v0/auth/http:
+    post:
+      description: Authenticate using HTTP-hosted public key and signed timestamp
+      operationId: exchange-http-token-v0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignatureTokenExchangeInput'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange HTTP signature for Registry JWT
+      tags:
+      - Auth
+  /v0/auth/oidc:
+    post:
+      description: Exchange an OIDC ID token from any configured provider for a short-lived Registry JWT token
+      operationId: exchange-oidc-token-v0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCTokenExchangeInputBody'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+          description: OK
+        default:
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+          description: Error
+      summary: Exchange OIDC ID token for Registry JWT
+      tags:
+      - Auth
+components:
+  schemas:
+    ErrorModel:
+      additionalProperties: false
+      properties:
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          examples:
+          - Property foo is required but is missing.
+          type: string
+        errors:
+          description: Optional list of individual error details
+          items:
+            $ref: '#/components/schemas/ErrorDetail'
+          type:
+          - array
+          - 'null'
+        instance:
+          description: A URI reference that identifies the specific occurrence of the problem.
+          examples:
+          - https://example.com/error-log/abc123
+          format: uri
+          type: string
+        status:
+          description: HTTP status code
+          examples:
+          - 400
+          format: int64
+          type: integer
+        title:
+          description: A short, human-readable summary of the problem type. This value should not change between occurrences of the error.
+          examples:
+          - Bad Request
+          type: string
+        type:
+          default: about:blank
+          description: A URI reference to human-readable documentation for the error.
+          examples:
+          - https://example.com/errors/example
+          format: uri
+          type: string
+      type: object
+    GitHubOIDCTokenExchangeInputBody:
+      additionalProperties: false
+      properties:
+        oidc_token:
+          description: GitHub Actions OIDC token
+          type: string
+      required:
+      - oidc_token
+      type: object
+    TokenResponse:
+      additionalProperties: false
+      properties:
+        expires_at:
+          format: int64
+          type: integer
+        registry_token:
+          type: string
+      required:
+      - registry_token
+      - expires_at
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
+    OIDCTokenExchangeInputBody:
+      additionalProperties: false
+      properties:
+        oidc_token:
+          description: OIDC ID token from any provider
+          type: string
+      required:
+      - oidc_token
+      type: object
+    SignatureTokenExchangeInput:
+      additionalProperties: false
+      properties:
+        domain:
+          description: Domain name
+          examples:
+          - example.com
+          type: string
+        signed_timestamp:
+          description: Hex-encoded signature of timestamp
+          examples:
+          - abcdef1234567890
+          type: string
+        timestamp:
+          description: RFC3339 timestamp
+          examples:
+          - '2023-01-01T00:00:00Z'
+          type: string
+      required:
+      - domain
+      - timestamp
+      - signed_timestamp
+      type: object
+    GitHubTokenExchangeInputBody:
+      additionalProperties: false
+      properties:
+        github_token:
+          description: GitHub OAuth token
+          type: string
+      required:
+      - github_token
+      type: object

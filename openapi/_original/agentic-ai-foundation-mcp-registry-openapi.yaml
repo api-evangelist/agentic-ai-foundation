@@ -1,3 +1,5 @@
+# x-archived-from: agentic-ai-foundation-mcp-registry-openapi.yaml
+# x-archived-on: 2026-09-16
 components:
   schemas:
     Argument:
