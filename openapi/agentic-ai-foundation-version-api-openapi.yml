@@ -52,29 +52,6 @@ paths:
       - Version
 components:
   schemas:
-    VersionBody:
-      additionalProperties: false
-      properties:
-        build_time:
-          description: Build timestamp
-          examples:
-          - '2025-10-14T12:00:00Z'
-          type: string
-        git_commit:
-          description: Git commit SHA
-          examples:
-          - abc123d
-          type: string
-        version:
-          description: Application version
-          examples:
-          - v1.0.0
-          type: string
-      required:
-      - version
-      - git_commit
-      - build_time
-      type: object
     ErrorDetail:
       additionalProperties: false
       properties:
@@ -126,4 +103,27 @@ components:
           - https://example.com/errors/example
           format: uri
           type: string
+      type: object
+    VersionBody:
+      additionalProperties: false
+      properties:
+        build_time:
+          description: Build timestamp
+          examples:
+          - '2025-10-14T12:00:00Z'
+          type: string
+        git_commit:
+          description: Git commit SHA
+          examples:
+          - abc123d
+          type: string
+        version:
+          description: Application version
+          examples:
+          - v1.0.0
+          type: string
+      required:
+      - version
+      - git_commit
+      - build_time
       type: object

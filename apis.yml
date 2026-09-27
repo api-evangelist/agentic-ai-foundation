@@ -10,15 +10,24 @@ url: https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs
 humanURL: https://aaif.io/
 type: Index
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - a2aproject/a2a
+    - aaif-goose/goose
+    - agentgateway/agentgateway
+    - agentsmd/agents.md
+    - modelcontextprotocol/modelcontextprotocol
   open_source: unknown
-  commercial: false
+  commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - openapi
+  - pricing
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium
@@ -38,10 +47,9 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/agentic-ai
 tags:
 - AI Agents
 - Linux Foundation
-- Open-Source
+- Open Source
 - Standards
 - MCP
-- Agentic AI
 - Interoperability
 - Agent Protocols
 - A2A
@@ -59,6 +67,7 @@ tags_raw:
 - A2A
 - AGENTS.md
 - Open Governance
+- Open-Source
 created: '2026-03-16'
 modified: '2026-08-30'
 specificationVersion: '0.23'
@@ -113,7 +122,7 @@ apis:
   humanURL: https://goose-docs.ai/
   tags:
   - AI Agents
-  - Open-Source
+  - Open Source
   - MCP
   - CLI
   - Desktop App
@@ -125,6 +134,7 @@ apis:
   - CLI
   - Desktop App
   - Rust
+  - Open-Source
   properties:
   - type: Documentation
     url: https://goose-docs.ai/
@@ -194,6 +204,12 @@ apis:
     API endpoint of its own.
   humanURL: https://agentgateway.dev/
   tags:
+  - Agent Gateway
+  - MCP
+  - Infrastructure
+  - Open Source
+  - Security
+  tags_raw:
   - Agent Gateway
   - MCP
   - Infrastructure
@@ -546,3 +562,10 @@ x-enrichment:
   status: enriched
   artifacts_added: 24
   pass: local-v1
+x-a2a:
+  verified: true
+  probed: '2026-09-26'
+  url: "https://modelcontextprotocol.io/.well-known/agent-card.json"
+  grade: "conformant"
+  protocol_version: "0.3"
+  control: 404

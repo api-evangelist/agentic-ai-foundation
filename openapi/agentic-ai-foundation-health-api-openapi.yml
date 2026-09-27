@@ -52,20 +52,6 @@ paths:
       - Health
 components:
   schemas:
-    HealthBody:
-      additionalProperties: false
-      properties:
-        github_client_id:
-          description: GitHub OAuth App Client ID
-          type: string
-        status:
-          description: Health status
-          examples:
-          - ok
-          type: string
-      required:
-      - status
-      type: object
     ErrorDetail:
       additionalProperties: false
       properties:
@@ -117,4 +103,18 @@ components:
           - https://example.com/errors/example
           format: uri
           type: string
+      type: object
+    HealthBody:
+      additionalProperties: false
+      properties:
+        github_client_id:
+          description: GitHub OAuth App Client ID
+          type: string
+        status:
+          description: Health status
+          examples:
+          - ok
+          type: string
+      required:
+      - status
       type: object
