@@ -52,6 +52,29 @@ paths:
       - Ping
 components:
   schemas:
+    PingBody:
+      additionalProperties: false
+      properties:
+        pong:
+          description: Ping response
+          examples:
+          - true
+          type: boolean
+      required:
+      - pong
+      type: object
+    ErrorDetail:
+      additionalProperties: false
+      properties:
+        location:
+          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
+          type: string
+        message:
+          description: Error message text
+          type: string
+        value:
+          description: The value at the given location
+      type: object
     ErrorModel:
       additionalProperties: false
       properties:
@@ -91,27 +114,4 @@ components:
           - https://example.com/errors/example
           format: uri
           type: string
-      type: object
-    PingBody:
-      additionalProperties: false
-      properties:
-        pong:
-          description: Ping response
-          examples:
-          - true
-          type: boolean
-      required:
-      - pong
-      type: object
-    ErrorDetail:
-      additionalProperties: false
-      properties:
-        location:
-          description: Where the error occurred, e.g. 'body.items[3].tags' or 'path.thing-id'
-          type: string
-        message:
-          description: Error message text
-          type: string
-        value:
-          description: The value at the given location
       type: object
