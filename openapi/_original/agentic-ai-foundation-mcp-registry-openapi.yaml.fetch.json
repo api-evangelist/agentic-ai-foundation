@@ -1,0 +1,12 @@
+{
+ "url": "https://registry.modelcontextprotocol.io/openapi.json",
+ "requested_url": "https://registry.modelcontextprotocol.io/openapi.json",
+ "status": 200,
+ "content_type": "application/openapi+json",
+ "bytes": 49007,
+ "sha256": "905b7d59f72e7278c99dab5131e323f7b90014ab93320064c33e23d913993f89",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 1.0), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
