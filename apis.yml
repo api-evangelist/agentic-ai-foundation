@@ -421,6 +421,8 @@ apis:
   - type: ToolCrosswalk
     url: mcp/agentic-ai-foundation-tool-crosswalk.yml
 common:
+- type: FinOps
+  url: finops/agentic-ai-foundation-finops.yml
 - type: Website
   url: https://aaif.io/
 - type: Portal
