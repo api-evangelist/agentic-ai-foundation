@@ -1,4 +1,4 @@
-# Agentic AI Foundation (agentic-ai-foundation)
+# Agentic AI Foundation
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,116 +64,176 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The Agentic AI Foundation (AAIF) is a Linux Foundation project formed in December 2025 that brings together critical open standards and projects for AI agents under neutral governance. It hosts Anthropic's Model Context Protocol (MCP), Block's goose AI agent, and OpenAI's AGENTS.md to enable interoperable, open AI agent ecosystems. The foundation drives standardization of agent communication protocols, tool interfaces, and cross-platform agent portability.
+The Agentic AI Foundation (AAIF) is a Linux Foundation project, announced 9 December 2025, that gives the core open standards and projects of the AI agent ecosystem a neutral home. It hosts five projects: Anthropic's Model Context Protocol (MCP), Block's goose agent, OpenAI's AGENTS.md, the Agent2Agent (A2A) protocol, and agentgateway. Platinum members include Amazon Web Services, Anthropic, Block, Bloomberg, Cloudflare, Google, Microsoft and OpenAI. AAIF publishes no commercial API of its own; the callable surface in this profile belongs to its hosted projects — the Official MCP Registry REST API, a live anonymous MCP server on the MCP documentation host, and an A2A agent card served from the same host. Eight working groups cover reliability, agentic commerce, governance and regulatory alignment, identity and trust, observability, security and privacy, workflow integration, and taxonomy.
 
-**URL:** [https://lfaidata.foundation/](https://lfaidata.foundation/)
+**Areas:** AI Agents · Linux Foundation · Open Source · Standards · MCP · Interoperability · Agent Protocols · A2A · AGENTS.md · Open Governance
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Agentic AI Foundation on APIs.io
 
-## Tags:
+Everything profiled for Agentic AI Foundation is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/agentic-ai-foundation/](https://apis.io/providers/agentic-ai-foundation/)** — or go straight to one of the APIs or properties below.
 
- - AI Agents, Linux Foundation, Open Source, Standards, MCP, Agentic AI, Interoperability
+### APIs (12)
 
-## Timestamps
+- [Model Context Protocol (MCP)](https://apis.io/apis/agentic-ai-foundation/model-context-protocol/) — The Model Context Protocol (MCP) is an open JSON-RPC 2.0 standard for connecting AI applications to external systems — tools, resources and reusable prompt…
+- [Goose AI Agent](https://apis.io/apis/agentic-ai-foundation/goose/) — goose is a general-purpose, open-source AI agent that runs locally. Originally from Block and now governed by AAIF, it is written in Rust, ships a desktop…
+- [AGENTS.md](https://apis.io/apis/agentic-ai-foundation/agents-md/) — AGENTS.md is a simple, universal convention that gives AI coding agents a consistent, predictable source of project-specific guidance — build commands, test…
+- [Agent2Agent (A2A)](https://apis.io/apis/agentic-ai-foundation/agent2agent/) — Agent2Agent (A2A) is an open protocol that lets AI agents built by different organisations, on different frameworks, discover each other's capabilities,…
+- [agentgateway](https://apis.io/apis/agentic-ai-foundation/agentgateway/) — agentgateway is an open-source data plane for agentic AI — it secures, observes and governs the connections between AI agents, models, MCP tools and APIs…
+- [Agentic AI Foundation Auth API](https://apis.io/apis/agentic-ai-foundation/agentic-ai-foundation-auth-api/) — Authentication operations for obtaining tokens to publish servers
+- [Agentic AI Foundation Health API](https://apis.io/apis/agentic-ai-foundation/agentic-ai-foundation-health-api/) — Health check endpoint for monitoring service availability
+- [Agentic AI Foundation Ping API](https://apis.io/apis/agentic-ai-foundation/agentic-ai-foundation-ping-api/) — Simple ping endpoint for testing connectivity
+- [Agentic AI Foundation Publish API](https://apis.io/apis/agentic-ai-foundation/agentic-ai-foundation-publish-api/) — Operations for publishing MCP servers to the registry
+- [Agentic AI Foundation Servers API](https://apis.io/apis/agentic-ai-foundation/agentic-ai-foundation-servers-api/) — Operations for discovering and retrieving MCP servers
+- [Agentic AI Foundation Validate API](https://apis.io/apis/agentic-ai-foundation/agentic-ai-foundation-validate-api/) — The validate API from Agentic AI Foundation — 2 operation(s) for validate.
+- [Agentic AI Foundation Version API](https://apis.io/apis/agentic-ai-foundation/agentic-ai-foundation-version-api/) — Version information endpoint for retrieving build and version details
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Model Context Protocol (MCP)
-The Model Context Protocol (MCP) is an open-source standard for connecting AI applications to external systems including data sources, tools, and workflows. Originally developed by Anthropic and donated to the Agentic AI Foundation, MCP enables agents to discover and invoke tools, access resources, and use reusable prompt templates through a standardized protocol.
+#### MCP servers (1)
 
-**Human URL:** [https://modelcontextprotocol.io/introduction](https://modelcontextprotocol.io/introduction)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags:
+- [agentic-ai-foundation-mcp.yml](https://apis.io/servers/agentic-ai-foundation/agentic-ai-foundation-mcp-yml/)
 
- - MCP, Model Context Protocol, Open Standard, Tool Use, AI Agents
+#### JSON Schema (3)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://modelcontextprotocol.io/introduction)
-- [GettingStarted](https://modelcontextprotocol.io/docs/develop/build-server)
-- [GitHubRepository](https://github.com/modelcontextprotocol/specification)
+- [Agentic Ai Foundation Mcp Protocol](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-mcp-protocol/)
+- [MCPResource](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-mcp-resource/)
+- [MCPTool](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-mcp-tool/)
 
-### Goose AI Agent
-Goose is a general-purpose, open-source AI agent that runs locally on your machine. Originally from Block and now under AAIF governance, goose supports 15+ LLM providers, 70+ MCP extensions, and provides a native desktop app, CLI, and API. Built in Rust for cross-platform portability across macOS, Linux, and Windows.
+#### JSON Structure (2)
 
-**Human URL:** [https://github.com/block/goose](https://github.com/block/goose)
+Data models expressed in JSON Structure.
 
-#### Tags:
+- [Agentic Ai Foundation Mcp Resource Structure](https://apis.io/json-structure/agentic-ai-foundation/agentic-ai-foundation-mcp-resource-structure/)
+- [Agentic Ai Foundation Mcp Tool Structure](https://apis.io/json-structure/agentic-ai-foundation/agentic-ai-foundation-mcp-tool-structure/)
 
- - AI Agent, Open Source, MCP, CLI, Desktop App, Rust
+#### JSON-LD (1)
 
-#### Properties
+Linked-data contexts for the provider's vocabulary.
 
-- [Documentation](https://block.github.io/goose/)
-- [GitHubRepository](https://github.com/block/goose)
+- [Agentic Ai Foundation Context](https://apis.io/jsonld/agentic-ai-foundation/agentic-ai-foundation-context/)
 
-## Common Properties
+#### Vocabulary (1)
 
-- [GitHubOrganization](https://github.com/agentic-ai-foundation)
-- [Portal](https://lfaidata.foundation/)
-- [Documentation](https://modelcontextprotocol.io/introduction)
-- [JSONSchema - MCP Tool Schema](https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs/heads/main/json-schema/agentic-ai-foundation-mcp-tool-schema.json)
-- [JSONSchema - MCP Resource Schema](https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs/heads/main/json-schema/agentic-ai-foundation-mcp-resource-schema.json)
-- [JSON-LD](https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs/heads/main/json-ld/agentic-ai-foundation-context.jsonld)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/agentic-ai-foundation/refs/heads/main/vocabulary/agentic-ai-foundation-vocabulary.yaml)
+The provider's domain terms, defined.
 
-## Features
+- [Agentic Ai Foundation Vocabulary](https://apis.io/vocabularies/agentic-ai-foundation/agentic-ai-foundation-vocabulary/)
 
-| Name | Description |
-|------|-------------|
-| Neutral Open Governance | All AAIF projects operate under Linux Foundation neutral governance, ensuring no single vendor controls the direction of AI agent standards. |
-| Model Context Protocol (MCP) | MCP is a universal adapter standard enabling AI agents to connect to any external tool, data source, or workflow through a consistent protocol. |
-| Cross-Platform Agent Portability | AAIF standards enable AI agents to run consistently across different platforms, environments, and LLM providers without vendor lock-in. |
-| Tool and Extension Ecosystem | The MCP standard enables a rich ecosystem of 70+ tools and extensions that any compliant agent can discover and invoke. |
-| Multi-LLM Provider Support | AAIF projects support 15+ LLM providers including Anthropic, OpenAI, Google, Azure, and Ollama through standardized provider interfaces. |
-| Open Agent Communication | The Agent Communication Protocol (ACP) enables agents to authenticate and communicate with each other and LLM providers through open standards. |
+#### Examples (2)
 
-## Use Cases
+Example requests and responses.
 
-| Name | Description |
-|------|-------------|
-| Interoperable AI Tool Development | Build MCP-compatible tools once and make them available to any AI agent or client that supports the MCP standard, eliminating integration silos. |
-| Enterprise Agent Standardization | Organizations adopt AAIF standards to ensure their AI agent infrastructure is portable, auditable, and not locked to a single AI vendor. |
-| Multi-Agent Workflow Orchestration | Use AAIF protocols to connect specialized AI agents that collaborate on complex tasks, each contributing domain-specific capabilities. |
-| Open-Source Agent Development | Developers build and extend open-source AI agents like goose using the AAIF ecosystem of standards and extensions. |
+- [Agentic Ai Foundation Mcp Resource Example](https://apis.io/examples/agentic-ai-foundation/agentic-ai-foundation-mcp-resource-example/)
+- [Agentic Ai Foundation Mcp Tool Example](https://apis.io/examples/agentic-ai-foundation/agentic-ai-foundation-mcp-tool-example/)
 
-## Integrations
+#### Overlays (1)
 
-| Name | Description |
-|------|-------------|
-| Claude (Anthropic) | Native MCP support via the Anthropic Messages API, the originating implementation of the MCP standard. |
-| ChatGPT (OpenAI) | MCP tool integration via the OpenAI Responses API, enabling ChatGPT to invoke MCP-compatible tools. |
-| VS Code | GitHub Copilot in VS Code supports MCP servers for AI-assisted development through the AAIF MCP standard. |
-| Cursor | Cursor IDE integrates MCP tool support for AI-assisted coding agents. |
-| Linux Foundation | AAIF operates under Linux Foundation governance alongside related projects in the LF AI & Data portfolio. |
+OpenAPI overlays, including conversational phrasing for each operation.
 
-## Artifacts
+- [Agentic Ai Foundation Mcp Registry Overlay](https://apis.io/overlays/agentic-ai-foundation/agentic-ai-foundation-mcp-registry-overlay/)
 
-Machine-readable API specifications organized by format.
+#### Governance rules (1)
 
-### JSON Schema
+Spectral rulesets for the provider's contracts.
 
-- [MCP Tool Schema](json-schema/agentic-ai-foundation-mcp-tool-schema.json)
-- [MCP Resource Schema](json-schema/agentic-ai-foundation-mcp-resource-schema.json)
+- [Agentic AI Foundation — jsonschema rules](https://apis.io/rules/agentic-ai-foundation/agentic-ai-foundation-jsonschema-spectral-rules/)
 
-### JSON Structure
+#### Security (3)
 
-- [MCP Tool Structure](json-structure/agentic-ai-foundation-mcp-tool-structure.json)
-- [MCP Resource Structure](json-structure/agentic-ai-foundation-mcp-resource-structure.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-### JSON-LD
+- [Agentic Ai Foundation Authentication](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-authentication/)
+- [Agentic Ai Foundation Domain Security](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-domain-security/)
+- [Agentic Ai Foundation Vulnerability Disclosure](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-vulnerability-disclosure/)
 
-- [Agentic AI Foundation Context](json-ld/agentic-ai-foundation-context.jsonld)
+#### Plans and pricing (1)
 
-## Vocabulary
+Published plans, tiers and prices.
 
-- [Agentic AI Foundation Vocabulary](vocabulary/agentic-ai-foundation-vocabulary.yaml) — Unified taxonomy mapping 5 resources, 6 actions, 2 workflows, and 2 personas across the MCP and goose ecosystems
+- [Agentic Ai Foundation Plans Pricing](https://apis.io/plans/agentic-ai-foundation/agentic-ai-foundation-plans-pricing/)
 
-## Maintainers
+#### Rate limits (1)
 
-**FN:** Kin Lane
+Published request limits.
 
-**Email:** info@apievangelist.com
+- [Agentic Ai Foundation Rate Limits](https://apis.io/rate-limits/agentic-ai-foundation/agentic-ai-foundation-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Agentic Ai Foundation Finops](https://apis.io/finops/agentic-ai-foundation/agentic-ai-foundation-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://aaif.io/)
+- [Documentation](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
+- [Getting started](https://modelcontextprotocol.io/docs/2026-07-28/develop/build-server)
+- [API reference](https://registry.modelcontextprotocol.io/docs)
+- [Support](https://aaif.io/contact)
+- [Blog](https://aaif.io/blog)
+- [Terms of service](https://www.linuxfoundation.org/legal/terms)
+- [Privacy policy](https://www.linuxfoundation.org/legal/privacy-policy)
+- [GitHub](https://github.com/aaif)
+
+## API Evangelist rating
+
+**Kin Score 48.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 67.5 |
+| Contract quality | 51.4 |
+| Contract governance | 28.0 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 78.6 |
+| Access clarity | 21.1 |
+
+**Agent readiness 30.8** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | conformant |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/agentic-ai-foundation/](https://apis.io/providers/agentic-ai-foundation/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Agentic AI Foundation: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/agentic-ai-foundation/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
