@@ -8,6 +8,9 @@ artifacts:
   a2a/agentic-ai-foundation-agent-card.json:
     method: unknown
     evidence: no authorship recorded
+  agentic-access/agentic-ai-foundation-agentic-access.yml:
+    method: generated
+    evidence: declared in the artifact
   authentication/agentic-ai-foundation-authentication.yml:
     method: derived
     evidence: declared in the artifact
@@ -47,6 +50,9 @@ artifacts:
   heartbeat/2026-11-02.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/agentic-ai-foundation-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -56,6 +62,15 @@ artifacts:
   json-ld/agentic-ai-foundation-context.jsonld:
     method: unknown
     evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-git-hub-oidctoken-exchange-input-body-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-git-hub-token-exchange-input-body-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-health-body-schema.json:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/agentic-ai-foundation-mcp-protocol-schema.json:
     method: unknown
     evidence: no authorship recorded
@@ -63,6 +78,39 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   json-schema/agentic-ai-foundation-mcp-tool-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-oidctoken-exchange-input-body-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-ping-body-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-server-json-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-server-list-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-server-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-signature-token-exchange-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-token-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-update-all-versions-status-response-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-update-server-status-body-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-validation-result-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/agentic-ai-foundation-version-body-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-structure/agentic-ai-foundation-mcp-resource-structure.json:
@@ -146,6 +194,9 @@ artifacts:
   lifecycle/agentic-ai-foundation-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
+  llms/agentic-ai-foundation-llms-provenance.yml:
+    method: searched
+    evidence: 'derive-llms-provenance.py: harvested'
   llms/agentic-ai-foundation-llms.txt:
     method: searched
     evidence: 'derive-llms-provenance.py: harvested'
@@ -189,6 +240,9 @@ artifacts:
   packages/agentic-ai-foundation-packages.yml:
     method: searched
     evidence: declared in the artifact
+  patterns/agentic-ai-foundation-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/agentic-ai-foundation-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -196,6 +250,9 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   rules/agentic-ai-foundation-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/agentic-ai-foundation-rules.yml:
     method: generated
     evidence: declared in the artifact
   security/agentic-ai-foundation-domain-security.yml:
@@ -213,9 +270,15 @@ artifacts:
   skills/agentic-ai-foundation-search-mcp-github.md:
     method: unknown
     evidence: no authorship recorded
+  vendors/agentic-ai-foundation-vendors.yml:
+    method: unknown
+    evidence: no authorship recorded
   vocabulary/agentic-ai-foundation-vocabulary.yaml:
     method: unknown
     evidence: no authorship recorded
+  vocabulary/agentic-ai-foundation-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
   well-known/agentic-ai-foundation-security.txt:
     method: unknown
     evidence: no authorship recorded
