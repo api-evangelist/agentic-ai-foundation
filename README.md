@@ -97,20 +97,40 @@ Model Context Protocol servers that expose the API to agents.
 
 - [agentic-ai-foundation-mcp.yml](https://apis.io/servers/agentic-ai-foundation/agentic-ai-foundation-mcp-yml/)
 
-#### JSON Schema (3)
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Agentic AI Foundation Agentic Access](https://apis.io/agentic-access/agentic-ai-foundation/agentic-ai-foundation-agentic-access/)
+
+#### JSON Schema (17)
 
 The data models the API reads and writes.
 
+- [GitHubOIDCTokenExchangeInputBody](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-git-hub-oidctoken-exchange-input-body/)
+- [GitHubTokenExchangeInputBody](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-git-hub-token-exchange-input-body/)
+- [HealthBody](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-health-body/)
 - [Agentic Ai Foundation Mcp Protocol](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-mcp-protocol/)
 - [MCPResource](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-mcp-resource/)
 - [MCPTool](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-mcp-tool/)
+- [OIDCTokenExchangeInputBody](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-oidctoken-exchange-input-body/)
+- [PingBody](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-ping-body/)
+- [ServerJSON](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-server-json/)
+- [ServerListResponse](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-server-list-response/)
+- [ServerResponse](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-server-response/)
+- [SignatureTokenExchangeInput](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-signature-token-exchange-input/)
+- [TokenResponse](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-token-response/)
+- [UpdateAllVersionsStatusResponse](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-update-all-versions-status-response/)
+- [UpdateServerStatusBody](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-update-server-status-body/)
+- [ValidationResult](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-validation-result/)
+- [VersionBody](https://apis.io/schemas/agentic-ai-foundation/agentic-ai-foundation-version-body/)
 
 #### JSON Structure (2)
 
 Data models expressed in JSON Structure.
 
-- [Agentic Ai Foundation Mcp Resource Structure](https://apis.io/json-structure/agentic-ai-foundation/agentic-ai-foundation-mcp-resource-structure/)
-- [Agentic Ai Foundation Mcp Tool Structure](https://apis.io/json-structure/agentic-ai-foundation/agentic-ai-foundation-mcp-tool-structure/)
+- [Agentic AI Foundation Mcp Resource Structure](https://apis.io/json-structure/agentic-ai-foundation/agentic-ai-foundation-mcp-resource-structure/)
+- [Agentic AI Foundation Mcp Tool Structure](https://apis.io/json-structure/agentic-ai-foundation/agentic-ai-foundation-mcp-tool-structure/)
 
 #### JSON-LD (1)
 
@@ -128,46 +148,47 @@ The provider's domain terms, defined.
 
 Example requests and responses.
 
-- [Agentic Ai Foundation Mcp Resource Example](https://apis.io/examples/agentic-ai-foundation/agentic-ai-foundation-mcp-resource-example/)
-- [Agentic Ai Foundation Mcp Tool Example](https://apis.io/examples/agentic-ai-foundation/agentic-ai-foundation-mcp-tool-example/)
+- [Agentic AI Foundation Mcp Resource Example](https://apis.io/examples/agentic-ai-foundation/agentic-ai-foundation-mcp-resource-example/)
+- [Agentic AI Foundation Mcp Tool Example](https://apis.io/examples/agentic-ai-foundation/agentic-ai-foundation-mcp-tool-example/)
 
 #### Overlays (1)
 
 OpenAPI overlays, including conversational phrasing for each operation.
 
-- [Agentic Ai Foundation Mcp Registry Overlay](https://apis.io/overlays/agentic-ai-foundation/agentic-ai-foundation-mcp-registry-overlay/)
+- [Agentic AI Foundation Mcp Registry Overlay](https://apis.io/overlays/agentic-ai-foundation/agentic-ai-foundation-mcp-registry-overlay/)
 
-#### Governance rules (1)
+#### Governance rules (2)
 
 Spectral rulesets for the provider's contracts.
 
 - [Agentic AI Foundation — jsonschema rules](https://apis.io/rules/agentic-ai-foundation/agentic-ai-foundation-jsonschema-spectral-rules/)
+- [Agentic AI Foundation API Rules](https://apis.io/rules/agentic-ai-foundation/agentic-ai-foundation-rules/)
 
 #### Security (3)
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [Agentic Ai Foundation Authentication](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-authentication/)
-- [Agentic Ai Foundation Domain Security](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-domain-security/)
-- [Agentic Ai Foundation Vulnerability Disclosure](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-vulnerability-disclosure/)
+- [Agentic AI Foundation Authentication](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-authentication/)
+- [Agentic AI Foundation Domain Security](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-domain-security/)
+- [Agentic AI Foundation Vulnerability Disclosure](https://apis.io/security/agentic-ai-foundation/agentic-ai-foundation-vulnerability-disclosure/)
 
 #### Plans and pricing (1)
 
 Published plans, tiers and prices.
 
-- [Agentic Ai Foundation Plans Pricing](https://apis.io/plans/agentic-ai-foundation/agentic-ai-foundation-plans-pricing/)
+- [Agentic AI Foundation Plans Pricing](https://apis.io/plans/agentic-ai-foundation/agentic-ai-foundation-plans-pricing/)
 
 #### Rate limits (1)
 
 Published request limits.
 
-- [Agentic Ai Foundation Rate Limits](https://apis.io/rate-limits/agentic-ai-foundation/agentic-ai-foundation-rate-limits/)
+- [Agentic AI Foundation Rate Limits](https://apis.io/rate-limits/agentic-ai-foundation/agentic-ai-foundation-rate-limits/)
 
 #### FinOps (1)
 
 What the API costs to run, by operation.
 
-- [Agentic Ai Foundation Finops](https://apis.io/finops/agentic-ai-foundation/agentic-ai-foundation-finops/)
+- [Agentic AI Foundation Finops](https://apis.io/finops/agentic-ai-foundation/agentic-ai-foundation-finops/)
 
 ## Where to find this API
 
@@ -185,23 +206,23 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 48.9** — developing · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 51.2** — developing · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
-| Discoverability | 67.5 |
-| Contract quality | 51.4 |
-| Contract governance | 28.0 |
-| Operational transparency | 34.2 |
+| Discoverability | 68.3 |
+| Contract quality | 58.2 |
+| Contract governance | 31.8 |
+| Operational transparency | 40.5 |
 | Developer ergonomics | 78.6 |
-| Access clarity | 21.1 |
+| Access clarity | 17.0 |
 
-**Agent readiness 30.8** — agent-ready
+**Agent readiness 33.4** — agent-ready
 
 | Agent-readiness dimension | Result |
 |---|---|
 | Spec Presence | yes |
-| Agentic Access | — |
+| Agentic Access | derived (partial credit) |
 | Reversibility Documented | — |
 | MCP Server | platform (partial credit) |
 | Auth Clarity | bearer (partial credit) |
@@ -212,7 +233,7 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Event Surface Described | — |
 | Agent Skills | yes |
 | Well Known Catalog | — |
-| Consent Identity | — |
+| Consent Identity | signal |
 | Agent Card | conformant |
 | Dry Run Mode | — |
 | Delegated Identity | — |
@@ -221,6 +242,10 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agentic Commerce | — |
 | Pagination Ratio | na |
 | Operation Distinctiveness | — |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | yes |
 
 **Regulatory alignment 30.4** — Horizontal (data, software, accessibility, platform)
 
